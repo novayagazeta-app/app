@@ -1,0 +1,16 @@
+<ion-view view-title="Topnews">
+    <ion-content>
+        <ion-list>
+            <ion-item class="item item-thumbnail-left" ng-repeat="article in articles" href="#/app/article/{{article.article_id}}">
+
+                <img class="img_article" ng-src="{{article.image_url}}">
+
+                <span>{{article.title}}</span>
+
+                <p>comments: {{article.comments_count}}</p>
+                <p>количество просмотров: {{article.views_count}}</p>
+
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>
