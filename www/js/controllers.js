@@ -19,10 +19,20 @@ angular.module('starter.controllers', []).controller('AppCtrl', function($scope,
   };
 }).controller('TopnewsCtrl', [
   '$scope', 'http', function($scope, http) {
+    var _limit, _make_request, _offset;
+    _limit = 10;
+    _offset = 0;
     $scope.articles = [];
-    return http.topnews().success(function(response) {
-      return $scope.articles = response.articles;
-    });
+    _make_request = function() {
+      return http.topnews(_limit, _offset).success(function(response) {
+        $scope.articles = $scope.articles.concat(response.articles);
+        return _offset = _offset + 10;
+      });
+    };
+    _make_request();
+    return $scope.more_articles = function() {
+      return _make_request();
+    };
   }
 ]).controller('ArticleCtrl', [
   '$scope', 'http', '$stateParams', function($scope, http, $stateParams) {
