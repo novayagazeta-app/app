@@ -1,5 +1,4 @@
-angular.module('starter.controllers', [])
-
+controllers
 .controller('AppCtrl', ($scope, $ionicModal, $timeout) ->
 
 # With the new view caching in Ionic, Controllers are only called
@@ -36,34 +35,4 @@ angular.module('starter.controllers', [])
         $timeout(() ->
             $scope.closeLogin();
         , 1000);
-)
-
-.controller('TopnewsCtrl', ['$scope', 'http', ($scope, http) ->
-        _limit = 10
-        _offset = 0;
-        $scope.articles = []
-
-        _make_request = () ->
-            http.topnews(_limit, _offset)
-            .success((response) ->
-                $scope.articles = $scope.articles.concat(response.articles)
-                _offset = _offset + 10
-            )
-
-        do _make_request
-
-        $scope.more_articles = () ->
-            do _make_request
-    ]
-)
-
-.controller('ArticleCtrl', ['$scope', 'http', '$stateParams', ($scope, http, $stateParams) ->
-
-        $scope.article = {}
-        http.article($stateParams.articleId)
-        .success((response) ->
-            $scope.article = response
-            console.log $scope.article
-        )
-    ]
 )

@@ -22,6 +22,7 @@ gulp.task('coffee', function () {
         .pipe(gulp.dest('./www/js/'))
 });
 
+
 gulp.task('sass', function (done) {
     gulp.src('./scss/ionic.app.scss')
         .pipe(sass({
