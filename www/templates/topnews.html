@@ -1,7 +1,6 @@
 <ion-view view-title="Topnews">
     <ion-content>
         <ion-refresher
-                pulling-text="Pull to refresh..."
                 on-refresh="update_articles()">
         </ion-refresher>
         <ion-list>
@@ -17,11 +16,6 @@
                 <p>количество просмотров: {{article.views_count}}</p>
 
             </ion-item>
-           <!--<ion-item>
-                <button class="button button-large button-balanced" ng-click="more_articles()">
-                    Еще
-                </button>
-            </ion-item>-->
         </ion-list>
         <ion-infinite-scroll
                 on-infinite="more_articles()"
