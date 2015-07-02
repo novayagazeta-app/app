@@ -1,5 +1,9 @@
 <ion-view view-title="Topnews">
     <ion-content>
+        <ion-refresher
+                pulling-text="Pull to refresh..."
+                on-refresh="update_articles()">
+        </ion-refresher>
         <ion-list>
             <ion-item class="item item-thumbnail-left" collection-repeat="article in articles"
                       href="#/app/article/{{article.article_id}}">
