@@ -8,14 +8,22 @@
 
                 <span>{{article.title}}</span>
 
-                <p>comments: {{article.comments_count}}</p>
+                <p>количество комментарий: {{article.comments_count}}</p>
 
                 <p>количество просмотров: {{article.views_count}}</p>
 
             </ion-item>
+           <!--<ion-item>
+                <button class="button button-large button-balanced" ng-click="more_articles()">
+                    Еще
+                </button>
+            </ion-item>-->
         </ion-list>
-        <button class="button button-large button-balanced" ng-click="more_articles()">
-            Еще
-        </button>
+        <ion-infinite-scroll
+                on-infinite="more_articles()"
+                icon="ios"
+                distance="1%">
+        </ion-infinite-scroll>
+
     </ion-content>
 </ion-view>

@@ -15,5 +15,6 @@ controllers
 
         $scope.more_articles = () ->
             do _make_request
+            $scope.$broadcast 'scroll.infiniteScrollComplete'
     ]
 )
