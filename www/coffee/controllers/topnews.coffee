@@ -11,6 +11,7 @@ controllers
             .success((response) ->
                 $scope.articles = $scope.articles.concat(response.articles)
                 @_offset = @_offset + 10
+
                 do callback if callback
             )
 
@@ -21,12 +22,14 @@ controllers
             do _init_parameters
             complete = () ->
                 $scope.$broadcast('scroll.refreshComplete')
+
             _make_request complete
 
 
         $scope.more_articles = () ->
             complete = () ->
                 $scope.$broadcast 'scroll.infiniteScrollComplete'
+                
             _make_request complete
 
     ]

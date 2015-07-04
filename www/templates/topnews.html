@@ -1,25 +1,27 @@
 <ion-view view-title="Topnews">
     <ion-content>
+
         <ion-refresher
                 on-refresh="update_articles()">
         </ion-refresher>
+
         <ion-list>
             <ion-item class="item item-thumbnail-left" collection-repeat="article in articles"
-                      href="#/app/article/{{article.article_id}}">
+                      href="#/app/article/{{ article.article_id }}">
 
-                <img class="img_article" ng-src="{{article.image_url}}">
+                <img class="img_article" ng-src="{{ article.image_url }}">
 
-                <span>{{article.title}}</span>
+                <span>{{ article.title }}</span>
 
-                <p>количество комментарий: {{article.comments_count}}</p>
+                <p>количество комментарий: {{ article.comments_count }}</p>
 
-                <p>количество просмотров: {{article.views_count}}</p>
+                <p>количество просмотров: {{ article.views_count }}</p>
 
             </ion-item>
         </ion-list>
+
         <ion-infinite-scroll
                 on-infinite="more_articles()"
-                icon="ios"
                 distance="1%">
         </ion-infinite-scroll>
 
