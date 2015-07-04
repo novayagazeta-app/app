@@ -14,6 +14,9 @@ controllers
 
                 do callback if callback
             )
+            .error(() ->
+                do callback if callback
+            )
 
         do _init_parameters
         do _make_request
