@@ -22,7 +22,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
             .state('app',
                 url: "/app",
                 abstract: true,
-                templateUrl: "../templates/menu.html",
+                templateUrl: "templates/menu.html",
                 controller: 'AppCtrl'
             )
 
@@ -30,21 +30,21 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
                 url: "/search",
                 views:
                     'menuContent':
-                        templateUrl: "../templates/search.html"
+                        templateUrl: "templates/search.html"
             )
 
             .state('app.browse',
                 url: "/browse",
                 views:
                     'menuContent':
-                        templateUrl: "../templates/browse.html"
+                        templateUrl: "templates/browse.html"
             )
 
             .state('app.topnews',
                 url: "/topnews",
                 views:
                     'menuContent':
-                        templateUrl: "../templates/topnews.html",
+                        templateUrl: "templates/topnews.html",
                         controller: 'TopnewsCtrl'
              )
 
@@ -52,8 +52,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
                 url: "/article/:articleId",
                 views:
                     'menuContent':
-                        templateUrl: "../templates/article.html",
+                        templateUrl: "templates/article.html",
                         controller: 'ArticleCtrl'
+            )
+
+            .state('app.comments',
+                url: "/comments/:articleId",
+                views:
+                    'menuContent':
+                        templateUrl: "templates/comments.html",
+                        controller: 'CommentsCtrl'
             )
 
         # if none of the above states are matched, use this as the fallback

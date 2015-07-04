@@ -29,7 +29,7 @@ controllers
         $scope.more_articles = () ->
             complete = () ->
                 $scope.$broadcast 'scroll.infiniteScrollComplete'
-                
+
             _make_request complete
 
     ]

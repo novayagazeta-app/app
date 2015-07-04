@@ -1,5 +1,15 @@
-<ion-view view-title="{{article.article_id}}">
+<ion-view>
+    <ion-nav-title>
+        {{ article.title }}
+    </ion-nav-title>
+
+    <ion-nav-buttons side="secondary">
+        <a class="button button-icon icon ion-ios-chatboxes" href="#/app/comments/{{ article.article_id }}"></a>
+    </ion-nav-buttons>
+
     <ion-content>
+        <h4>{{ article.title }}</h4>
+
         <div ng-bind-html="article.article_body"></div>
     </ion-content>
 </ion-view>

@@ -14,5 +14,11 @@ services
                     "article_id": id
             )
 
+        comments: (id) ->
+            $http.get("#{domain}/comments/",
+                params:
+                    "article_id": id
+            )
+
     }
 ])

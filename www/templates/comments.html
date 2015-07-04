@@ -1,0 +1,23 @@
+<ion-view>
+    <ion-nav-title>
+        Комментарии
+    </ion-nav-title>
+
+    <ion-content>
+
+        <script type="text/ng-template" id="commentsTree">
+            {{ comment.text }}
+            <ul ng-if="comment.comments">
+                <li ng-repeat="comment in comment.comments" ng-include="'commentsTree'">
+                </li>
+            </ul>
+        </script>
+
+        <ul class="list" class="item item-thumbnail-left">
+            <li ng-repeat="comment in comments" ng-include="'commentsTree'"></li>
+        </ul>
+
+    </ion-content>
+</ion-view>
+
+
