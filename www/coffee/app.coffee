@@ -48,6 +48,14 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
                         controller: 'TopnewsCtrl'
              )
 
+            .state('app.news',
+                url: "/rubric/:rubricId",
+                views:
+                    'menuContent':
+                        templateUrl: "templates/topnews.html",
+                        controller: 'ArticlesCtrl'
+            )
+
             .state('app.article',
                 url: "/article/:articleId",
                 views:
