@@ -1,4 +1,27 @@
 {
   "name": "newspaper",
-  "app_id": ""
+  "app_id": "",
+  "gulpStartupTasks": ["sass", "coffee", "watch"],
+  "proxies": [
+      {
+        "path": "/topnews/",
+        "proxyUrl": "http://api.novayagazeta.ru/topnews/"
+      },
+      {
+        "path": "/rubrics/",
+        "proxyUrl": "http://api.novayagazeta.ru/rubrics/"
+      },
+      {
+        "path": "/articles/",
+        "proxyUrl": "http://api.novayagazeta.ru/articles/"
+      },
+      {
+        "path": "/article/",
+        "proxyUrl": "http://api.novayagazeta.ru/article/"
+      },
+      {
+        "path": "/comments/",
+        "proxyUrl": "http://api.novayagazeta.ru/comments/"
+      }
+    ]
 }

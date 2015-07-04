@@ -1,7 +1,9 @@
 
 services
 .factory("domain", () ->
-    name = "localhost:5000"
-    protocol = "http"
-    return "#{protocol}://#{name}"
+    if ionic.Platform.isWebView()
+        url = "http://api.novayagazeta.ru"
+    else
+        url = ""
+    return url
 )
