@@ -6,17 +6,16 @@
         </ion-refresher>
 
         <ion-list>
-            <ion-item class="item item-thumbnail-left" collection-repeat="article in articles"
+            <ion-item class="item-thumbnail-left"
+                      collection-repeat="article in articles"
                       href="#/app/article/{{ article.article_id }}">
-
-                <img class="img_article" ng-src="{{ article.image_url }}">
-
-                <span>{{ article.title }}</span>
-
-                <p>количество комментарий: {{ article.comments_count }}</p>
-
-                <p>количество просмотров: {{ article.views_count }}</p>
-
+                <img ng-src="{{ article.image_url }}" width="80">
+                <h2>{{ article.title }}</h2>
+                <p>{{ article.description }}</p>
+                <p>
+                    <i class="icon ion-ios-eye-outline"></i> {{ article.views_count }}
+                    <i class="icon ion-ios-chatbubble-outline"></i> {{ article.comments_count }}
+                </p>
             </ion-item>
         </ion-list>
 
