@@ -7675,5 +7675,7 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
-.img_article {
-  height: auto !important; }
+.article {
+  padding: 0 10px; }
+  .article .content p img {
+    max-width: 100%; }

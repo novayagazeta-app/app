@@ -1,0 +1,8 @@
+.article {
+  padding: 0 10px;
+  .content {
+    & p img {
+      max-width: 100%;
+    }
+  }
+}
