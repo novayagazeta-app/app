@@ -1,34 +1,31 @@
 controllers
 .controller('CommentsCtrl', ['$scope', 'http', '$stateParams', ($scope, http, $stateParams) ->
 
-
-
-        _create = (comments) ->
-            _.reduce comments, (memo, comment) ->
-                unless comment.in_reply_to
-                    memo.push comment
-                else
-                    _comment = _.find memo, (i) -> i.comment_id == comment.in_reply_to
-                    _comment.comments = _create comments
-                return memo
-            , []
+        _create_child_tree = (elem, comments) ->
+            childs = _.where comments, {in_reply_to: elem.comment_id}
+            if childs.length
+                elem["comments"] = []
+                _.each childs, (child) ->
+                    elem["comments"].push _create_child_tree child, comments
+            return elem
 
 
         _create_tree = (comments) ->
-            sorted_array = _.sortBy(comments, (elem) ->
-                        return elem.comment_id
-                    )
+            sorted_comments = _.sortBy(comments, (elem) ->
+                return elem.comment_id
+            )
 
-            $scope.comments = _create sorted_array
-
-            $scope.comments = {}
+            result = []
+            _.each sorted_comments, (val) ->
+                node = val
+                unless val.in_reply_to
+                    node = _create_child_tree node, comments
+                    result.push node
+            return result
 
 
         http.comments($stateParams.articleId)
             .success (response) ->
                 $scope.comments = _create_tree(response.comments)
-                console.log $scope.comments
-                console.log $stateParams.articleId
-
     ]
 )
