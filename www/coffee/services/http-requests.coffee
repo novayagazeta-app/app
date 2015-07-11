@@ -1,9 +1,6 @@
 services
 .factory("http", ["$http", "domain", ($http, domain) ->
     {
-        rubrics: () ->
-            $http.get("#{domain}/rubrics/")
-
 
         topnews: (limit, offset) ->
             $http.get("#{domain}/topnews/",

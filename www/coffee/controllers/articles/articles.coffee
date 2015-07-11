@@ -1,12 +1,12 @@
 controllers
-.controller('ArticlesCtrl', ['$scope', 'http', '$stateParams', ($scope, http, $stateParams) ->
+.controller('ArticlesCtrl', ['$scope', 'http', '$stateParams', 'rubrics', ($scope, http, $stateParams, rubrics) ->
 
         _init_parameters = () ->
             @_rubric_id = $stateParams.rubricId if $stateParams.rubricId
             @_limit = 10
             @_offset = 0;
             $scope.articles = []
-            $scope.currebnt_rubric = (_.where $scope.rubrics, {rubric_id: parseInt(this._rubric_id)})[0]
+            $scope.current_rubric = (_.where rubrics, {rubric_id: parseInt(this._rubric_id)})[0]
 
 
         _make_request = (callback) ->

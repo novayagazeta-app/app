@@ -1,12 +1,12 @@
 controllers
-.controller('TopnewsCtrl', ['$scope', 'http', ($scope, http) ->
+.controller('TopnewsCtrl', ['$scope', 'http', 'rubrics', ($scope, http, rubrics) ->
 
         _init_parameters = () ->
             @_limit = 10
             @_offset = 0;
             $scope.articles = []
-            $scope.currebnt_rubric =
-                title: "Топ"
+            $scope.current_rubric = rubrics[0]
+
 
         _make_request = (callback) ->
             http.topnews(@_limit, @_offset)
