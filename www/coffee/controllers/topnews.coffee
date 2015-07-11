@@ -5,6 +5,8 @@ controllers
             @_limit = 10
             @_offset = 0;
             $scope.articles = []
+            $scope.currebnt_rubric =
+                title: "Топ"
 
         _make_request = (callback) ->
             http.topnews(@_limit, @_offset)
@@ -19,12 +21,12 @@ controllers
             )
 
         do _init_parameters
-        do _make_request
+
 
         $scope.update_articles = () ->
             do _init_parameters
             complete = () ->
-                $scope.$broadcast('scroll.refreshComplete')
+                $scope.$broadcast 'scroll.refreshComplete'
 
             _make_request complete
 
