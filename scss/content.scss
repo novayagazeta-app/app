@@ -4,5 +4,189 @@
     & p img {
       max-width: 100%;
     }
+
+    & table {
+      max-width: 100%;
+    }
+
   }
+}
+
+.b-article table tr td {
+  padding: 5px;
+}
+
+.b-article img {
+  max-width: 100%;
+}
+
+.b-article table tr td {
+  padding: 5px;
+}
+
+sup {
+  vertical-align: super;
+  font-size: smaller;
+}
+
+strong, th {
+  font-weight: bold;
+}
+
+/* === Global styles === */
+
+.g-indented {
+  margin-bottom: 32px;
+}
+
+.g-justify-left { text-align: left; }
+.g-justify-right { text-align: right; }
+.g-justify-center { text-align: center; }
+.g-justify-justify { text-align: justify; }
+
+.g-image-align-left { float: left; padding: 10px 10px 10px 0; }
+.g-image-align-right { float: right; padding: 10px 0 10px 10px; }
+
+.g-field-error {
+  color: #ff0000;
+}
+
+.g-field-success {
+  color: #00ff00;
+}
+
+.g-captcha-container {
+  width: 120px;
+  height: 49px;
+}
+
+/* links */
+.g-link-pseudo {
+  border-bottom: 1px dotted;
+  text-decoration: none;
+}
+
+.g-link-to-all {
+  color: #222;
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.g-link-rc {
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 4px 8px;
+
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.g-link-print {
+  background: url(../i/i-print.png) no-repeat;
+  padding-left: 15px;
+}
+
+.g-tooltip {
+  position: relative;
+}
+
+.g-tooltip .g-tooltip-link {
+  border-bottom: 1px dotted;
+  color: #750000;
+  text-decoration: none;
+}
+
+.g-tooltip .g-tooltip-box {
+  background: #fff;
+  border: 1px solid #750000;
+  cursor: default;
+  display: none;
+  font-size: 11px;
+  left: 50%;
+  line-height: 16px;
+  margin-left: -78px;
+  padding: 5px 8px;
+  position: absolute;
+  width: 142px;
+  z-index: 1000;
+
+  -moz-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
+  -pie-box-shadow: 0 1px 10px rgba(25, 25, 25, 0.3);
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
+}
+
+.g-tooltip-up .g-tooltip-box {
+  bottom: 17px;
+}
+
+.g-tooltip-down .g-tooltip-box {
+  top: 18px;
+}
+
+.g-tooltip:hover .g-tooltip-box {
+  display: block;
+}
+
+.g-tooltip .g-tooltip-box:after {
+  height: 7px;
+  left: 50%;
+  margin-left: -6px;
+  position: absolute;
+  width: 12px;
+}
+
+.g-tooltip-up .g-tooltip-box:after {
+  bottom: -1px;
+  content: url(../i/bg-tooltip-decor-up.png);
+}
+
+.g-tooltip-down .g-tooltip-box:after {
+  content: url(../i/bg-tooltip-decor-down.png);
+  top: -11px;
+}
+
+.g-tooltip .g-tooltip-box a {
+  color: #222;
+}
+
+.g-views {
+  background: url(../i/i-views.png) no-repeat 0 50%;
+  font-size: 11px;
+  font-weight: normal;
+  line-height: 16px;
+  padding-left: 23px;
+}
+
+.g-dark {
+  background: #414140;
+  color: #fff;
+  padding: 12px 0 12px 15px;
+  position: relative;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.g-dark a,
+.g-dark h3 {
+  color: #fff;
+}
+
+.g-dark .g-views {
+  background-image: url(../i/i-views-2.png);
+  color: #b3b3b3;
+}
+
+.g-highlighted {
+  background: #f7f7cf;
+  font-weight: bold;
+  margin: 0 -2px;
+  padding: 0 2px;
+}
+
+.g-voters {
+  background: url(../i/i-voters.png) no-repeat;
+  font-size: 11px;
+  font-weight: normal;
+  line-height: 16px;
+  padding-left: 17px;
 }
