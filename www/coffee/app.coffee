@@ -23,7 +23,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
                 url: "/app",
                 abstract: true,
                 templateUrl: "templates/menu.html",
-                controller: 'AppCtrl'
+                controller: 'MenuCtrl'
             )
 
             .state('app.search',
@@ -44,15 +44,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
                 url: "/topnews",
                 views:
                     'menuContent':
-                        templateUrl: "templates/topnews.html",
-                        controller: 'TopnewsCtrl'
+                        templateUrl: "templates/articles.html",
+                        controller: 'ArticlesCtrl'
              )
 
             .state('app.news',
                 url: "/rubric/:rubricId",
                 views:
                     'menuContent':
-                        templateUrl: "templates/topnews.html",
+                        templateUrl: "templates/articles.html",
                         controller: 'ArticlesCtrl'
             )
 

@@ -9,12 +9,12 @@ services
                     offset: offset
             )
 
-        articles: (rubric_id, limit, offset) ->
+        articles: (limit, offset, rubric_id) ->
             $http.get("#{domain}/articles/",
                 params:
                     limit: limit
-                    rubric_id: rubric_id
                     offset: offset
+                    rubric_id: rubric_id
             )
 
         article: (id) ->
