@@ -23,9 +23,13 @@ controllers
                     result.push node
             return result
 
+        do $scope.show_spinner
 
         http.comments($stateParams.articleId)
             .success (response) ->
                 $scope.comments = _create_tree(response.comments)
+            .finally(() ->
+                do $scope.hide_spinner
+            )
     ]
 )
