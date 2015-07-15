@@ -1,21 +1,22 @@
 <ion-view>
-    <ion-nav-title>
-        Комментарии
-    </ion-nav-title>
+  <ion-nav-title>
+    Комментарии
+  </ion-nav-title>
 
-    <ion-content>
+  <ion-content>
 
-        <script type="text/ng-template" id="commentsTree">
-            {{ ::comment.text }}
-            <ul ng-if="::comment.comments">
-                <li ng-repeat="comment in ::comment.comments" ng-include="'commentsTree'">
-                </li>
-            </ul>
-        </script>
+    <script type="text/ng-template" id="comment">
+      <div class="comment_item l{{ ::comment.level}}">
+        <div class="meta">
+          <span class="username">{{ ::comment.author }}</span>
+        </div>
+        <div class="text">{{ ::comment.text }}</div>
+      </div>
+      <ng-include ng-if="::comment.comments" ng-repeat="comment in ::comment.comments" src="'comment'"></ng-include>
+    </script>
 
-        <ul class="list" class="item item-thumbnail-left">
-            <li ng-repeat="comment in ::comments" ng-include="'commentsTree'"></li>
-        </ul>
-
-    </ion-content>
+    <div class="comments_list">
+      <ng-include ng-repeat="comment in ::comments" src="'comment'"></ng-include>
+    </div>
+  </ion-content>
 </ion-view>

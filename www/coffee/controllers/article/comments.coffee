@@ -1,6 +1,12 @@
 controllers
 .controller('CommentsCtrl', ['$scope', 'http', '$stateParams', ($scope, http, $stateParams) ->
 
+        make_level = (comments, level=0) ->
+          return _.map comments, (comment) ->
+            comment.level = level
+            comment.comments = make_level(comment.comments, level + 1) if comment.comments
+            return comment
+
         _create_child_tree = (elem, comments) ->
             childs = _.where comments, {in_reply_to: elem.comment_id}
             if childs.length
@@ -27,7 +33,9 @@ controllers
 
         http.comments($stateParams.articleId)
             .success (response) ->
-                $scope.comments = _create_tree(response.comments)
+                comments = make_level _create_tree(response.comments)
+                $scope.comments = comments
+
             .finally(() ->
                 do $scope.hide_spinner
             )
