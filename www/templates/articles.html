@@ -1,6 +1,6 @@
 <ion-view>
     <ion-nav-title>
-        {{ current_rubric.title }}
+        {{ ::current_rubric.title }}
     </ion-nav-title>
 
     <ion-content>
@@ -12,13 +12,13 @@
         <ion-list>
             <ion-item class="item-thumbnail-left"
                       collection-repeat="article in articles"
-                      href="#/app/article/{{ article.article_id }}">
-                <img ng-src="{{ article.image_url }}" width="80">
-                <h2>{{ article.title }}</h2>
-                <p>{{ article.description }}</p>
+                      href="#/app/article/{{ ::article.article_id }}">
+                <img ng-src="{{ ::article.image_url }}" width="80">
+                <h2>{{ ::article.title }}</h2>
+                <p>{{ ::article.description }}</p>
                 <p>
-                    <i class="icon ion-ios-eye-outline"></i> {{ article.views_count }}
-                    <i class="icon ion-ios-chatbubble-outline"></i> {{ article.comments_count }}
+                    <i class="icon ion-ios-eye-outline"></i> {{ ::article.views_count }}
+                    <i class="icon ion-ios-chatbubble-outline"></i> {{ ::article.comments_count }}
                 </p>
             </ion-item>
         </ion-list>

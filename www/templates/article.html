@@ -4,13 +4,13 @@
     </ion-nav-title>
 
     <ion-nav-buttons side="secondary">
-        <a class="button button-icon icon ion-ios-chatbubble-outline" href="#/app/comments/{{ article.article_id }}"></a>
+        <a class="button button-icon icon ion-ios-chatbubble-outline" href="#/app/comments/{{ ::article.article_id }}"></a>
     </ion-nav-buttons>
 
     <ion-content>
         <div class="article">
-            <h4>{{ article.title }}</h4>
-            <div class="content b-article g-content g-clearfix" ng-bind-html="article.article_body"></div>
+            <h4>{{ ::article.title }}</h4>
+            <div class="content b-article g-content g-clearfix" ng-bind-html="::article.article_body"></div>
         </div>
     </ion-content>
 </ion-view>

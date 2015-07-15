@@ -17,12 +17,12 @@
             <h1 class="title">Рубрики</h1>
         </ion-header-bar>
         <ion-content>
-            <ion-list ng-repeat="rubric in rubrics">
-                <ion-item menu-close ng-if="rubric.rubric_id" href="#/app/rubric/{{ rubric.rubric_id }}">
-                    {{ rubric.title }}
+            <ion-list ng-repeat="rubric in ::rubrics">
+                <ion-item menu-close ng-if="::rubric.rubric_id" href="#/app/rubric/{{ ::rubric.rubric_id }}">
+                    {{ ::rubric.title }}
                 </ion-item>
-                <ion-item menu-close ng-if="!rubric.rubric_id"  href="#/app/topnews">
-                    {{ rubric.title }}
+                <ion-item menu-close ng-if="::!rubric.rubric_id"  href="#/app/topnews">
+                    {{ ::rubric.title }}
                 </ion-item>
             </ion-list>
         </ion-content>
