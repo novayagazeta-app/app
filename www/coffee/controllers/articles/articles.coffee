@@ -34,13 +34,21 @@ controllers
             )
 
 
+        _stop_infinite_scroll = (articles) ->
+            if articles.length < @_limit
+                $scope.stop_loading_articles = yes
+
         do _init_parameters
 
 
         $scope.update_articles = () ->
             complete = (response) ->
+                _stop_infinite_scroll response.articles
+
                 first_ten_articles = _.first($scope.articles, 10)
-                new_articles =  _.difference first_ten_articles, response
+                new_articles = _.filter(response.articles, (val, key) ->
+                    first_ten_articles[key].article_id isnt val.article_id
+                )
                 if new_articles
                     #TODO: _.union() returns new copy
                     #$scope.articles = _.union new_articles, $scope.articles
@@ -55,10 +63,13 @@ controllers
 
         $scope.more_articles = () ->
             complete = (response) ->
+                _stop_infinite_scroll response.articles
+
                 #TODO: concat() returns new copy
                 #$scope.articles = $scope.articles.concat(response.articles)
                 _.each response.articles, (article) ->
                     $scope.articles.push article
+
                 @_offset = @_offset + 10
 
             done = () ->

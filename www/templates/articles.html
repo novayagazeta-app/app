@@ -24,6 +24,7 @@
         </ion-list>
 
         <ion-infinite-scroll
+                ng-if="!stop_loading_articles"
                 on-infinite="more_articles()"
                 distance="20%">
         </ion-infinite-scroll>
