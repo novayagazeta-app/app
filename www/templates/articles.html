@@ -10,12 +10,11 @@
         </ion-refresher>
 
         <ion-list>
-            <ion-item class="item-thumbnail-left"
+            <ion-item class="item-thumbnail-left articles"
                       collection-repeat="article in articles"
                       href="#/app/article/{{ ::article.article_id }}">
-                <img ng-src="{{ ::article.image_url }}" width="80">
-                <h2>{{ ::article.title }}</h2>
-                <p>{{ ::article.description }}</p>
+                <img ng-src="{{ ::article.image_url }}" class="item-image">
+                <span>{{ ::article.title }}</span>
                 <p>
                     <i class="icon ion-ios-eye-outline"></i> {{ ::article.views_count }}
                     <i class="icon ion-ios-chatbubble-outline"></i> {{ ::article.comments_count }}

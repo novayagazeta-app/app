@@ -7924,3 +7924,10 @@ strong, th {
 
 .comments_list .comment_item.l20 {
   padding-left: 215px; }
+
+.articles.item-thumbnail-left .item-content .item-image {
+  border-radius: 40px; }
+.articles .item-content span {
+  white-space: normal; }
+.articles .item-complex .item-content {
+  padding-right: 10px; }

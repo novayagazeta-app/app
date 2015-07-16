@@ -22,3 +22,17 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 @import "www/lib/ionic/scss/ionic";
 @import "content";
 @import "comments";
+
+.articles {
+  &.item-thumbnail-left .item-content .item-image {
+    border-radius: 40px;
+  }
+
+  .item-content span {
+    white-space: normal;
+  }
+
+  .item-complex .item-content {
+    padding-right: 10px;
+  }
+}
