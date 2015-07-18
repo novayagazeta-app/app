@@ -33,7 +33,10 @@ controllers
 
         http.comments($stateParams.articleId)
             .success (response) ->
-                comments = make_level _create_tree(response.comments)
+                comments = _.map response.comments, (comment) ->
+                  comment.text = linkifyStr(comment.text)
+                  return comment
+                comments = make_level _create_tree(comments)
                 $scope.comments = comments
 
             .finally(() ->

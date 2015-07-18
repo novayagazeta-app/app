@@ -10,7 +10,7 @@
         <div class="meta">
           <span class="username">{{ ::comment.author }}</span>
         </div>
-        <div class="text">{{ ::comment.text }}</div>
+        <div class="text" ng-bind-html="::comment.text"></div>
       </div>
       <ng-include ng-if="::comment.comments" ng-repeat="comment in ::comment.comments" src="'comment'"></ng-include>
     </script>
