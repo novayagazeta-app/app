@@ -7,6 +7,16 @@ controllers
             comment.comments = make_level(comment.comments, level + 1) if comment.comments
             return comment
 
+        parse_comment = (comment) ->
+          # needs optimization
+          text = comment.text
+          text = linkifyStr(text)
+          text = text.replace(/(?:\r\n|\r|\n)/g, '<br/>');
+          text = text.replace /(.*(-|\/|\+){3,})/, '<blockquote>$1</blockquote>'
+          text = text.replace /(\/".*\/")/, '<blockquote>$1</blockquote>'
+          comment.text = text
+          return comment
+
         _create_child_tree = (elem, comments) ->
             childs = _.where comments, {in_reply_to: elem.comment_id}
             if childs.length
@@ -33,9 +43,7 @@ controllers
 
         http.comments($stateParams.articleId)
             .success (response) ->
-                comments = _.map response.comments, (comment) ->
-                  comment.text = linkifyStr(comment.text)
-                  return comment
+                comments = _.map response.comments, parse_comment
                 comments = make_level _create_tree(comments)
                 $scope.comments = comments
 
