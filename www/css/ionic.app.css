@@ -7675,18 +7675,48 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
-.article {
-  font-family: rs, sans-serif;
+.large {
+  font-size: large; }
+
+.base, .article, .comments {
   line-height: 1.4;
-  color: #313d38;
+  color: #313d38; }
+  .base h1, .article h1, .comments h1 {
+    font-size: 2em; }
+  .base h2, .article h2, .comments h2 {
+    font-size: 1.5em; }
+  .base h3, .article h3, .comments h3 {
+    font-size: 1.17em; }
+  .base h4, .article h4, .comments h4 {
+    font-size: 1.12em; }
+  .base h5, .article h5, .comments h5 {
+    font-size: .83em; }
+  .base h6, .article h6, .comments h6 {
+    font-size: .75em; }
+  .base a, .article a, .comments a {
+    color: #e55c53; }
+  .base blockquote, .article blockquote, .comments blockquote {
+    background: #f9f9f9;
+    padding: 0.5em 10px;
+    quotes: "\201C" "\201D" "\2018" "\2019"; }
+  .base blockquote:before, .article blockquote:before, .comments blockquote:before {
+    color: #ccc;
+    content: open-quote;
+    font-size: 4em;
+    line-height: 0.1em;
+    margin-right: 0.25em;
+    vertical-align: -0.4em; }
+
+.article {
   padding: 0 10px; }
-  .article a {
-    color: #e55c53;
-    font-size: 100%; }
+  .article .title {
+    font-weight: normal; }
   .article .content p img {
     max-width: 100%; }
   .article .content table {
     max-width: 100%; }
+  .article .content sup {
+    top: 0; }
 
 .b-article table tr td {
   padding: 5px; }
@@ -7848,22 +7878,15 @@ strong, th {
 
 .comments_list .comment_item {
   padding: 15px;
-  position: relative;
-  background: #fff; }
+  position: relative; }
 
 .comments_list .comment_item .meta {
   margin-bottom: 5px; }
 
 .comments_list .comment_item .meta .username {
-  font-size: 13px;
   font-weight: bold;
   color: #4f6173;
   margin-right: 10px; }
-
-.comments_list .comment_item .text {
-  color: #000;
-  font-size: 14px;
-  line-height: 22px; }
 
 .comments_list .comment_item.l1 {
   padding-left: 25px; }

@@ -1,7 +1,10 @@
+.comments {
+  @extend .base;
+}
+
 .comments_list .comment_item {
   padding: 15px;
   position: relative;
-  background: #fff;
 }
 
 .comments_list .comment_item .meta {
@@ -9,16 +12,9 @@
 }
 
 .comments_list .comment_item .meta .username {
-  font-size: 13px;
   font-weight: bold;
   color: #4f6173;
   margin-right: 10px;
-}
-
-.comments_list .comment_item .text {
-  color: #000;
-  font-size: 14px;
-  line-height: 22px;
 }
 
 @for $i from 1 through 20 {
