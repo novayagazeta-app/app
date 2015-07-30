@@ -7,10 +7,14 @@ var coffee = require('gulp-coffee');
 var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var sh = require('shelljs');
+var karma = require("gulp-karma");
+var Server = require('karma').Server;
+
 
 var paths = {
     sass: ['./scss/**/*.scss'],
-    coffee: ['./www/coffee/**/*.coffee']
+    coffee: ['./www/coffee/**/*.coffee'],
+    test: ['test/spec/**/*.coffee']
 };
 
 gulp.task('default', ['sass', 'coffee']);
@@ -62,3 +66,13 @@ gulp.task('git-check', function (done) {
     }
     done();
 });
+
+
+gulp.task("karma", function (done) {
+  new Server({
+    configFile: __dirname + '/karma.conf.coffee',
+    singleRun: true
+  }, done).start();
+});
+
+gulp.task("test", ["default", "karma"]);
