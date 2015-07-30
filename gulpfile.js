@@ -18,6 +18,7 @@ gulp.task('default', ['sass', 'coffee']);
 
 gulp.task('coffee', function () {
     gulp.src(paths.coffee)
+        .pipe(concat('newspaper.coffee'))
         .pipe(coffee({bare: true}).on('error', gutil.log))
         .pipe(gulp.dest('./www/js/'))
 });

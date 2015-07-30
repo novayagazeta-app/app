@@ -1,4 +1,8 @@
-services
+###
+    constant rubrics
+###
+
+newspaper_services
 .constant("rubrics", [
         {
             title: "Топ новости"
@@ -50,10 +54,6 @@ services
         {
             rubric_id: 10
             title: "Культура"
-        },
-        {
-            rubric_id: 181
-            title: "Приложения"
         },
         {
             rubric_id: 54

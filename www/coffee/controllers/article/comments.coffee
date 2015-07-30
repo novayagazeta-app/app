@@ -1,5 +1,5 @@
 controllers
-.controller('CommentsCtrl', ['$scope', 'http', '$stateParams', ($scope, http, $stateParams) ->
+.controller('CommentsCtrl', ['$scope', 'http_requests', '$stateParams', ($scope, http, $stateParams) ->
 
         make_level = (comments, level=0) ->
           return _.map comments, (comment) ->

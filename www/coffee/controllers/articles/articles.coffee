@@ -1,5 +1,6 @@
 controllers
-.controller('ArticlesCtrl', ['$scope', 'http', '$stateParams', 'rubrics', ($scope, http, $stateParams, rubrics) ->
+.controller('ArticlesCtrl', ['$scope', 'http_requests', '$stateParams', 'rubrics',
+    ($scope, http, $stateParams, rubrics) ->
 
         _init_parameters = () ->
             @_limit = 10

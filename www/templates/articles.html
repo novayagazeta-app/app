@@ -1,6 +1,6 @@
 <ion-view>
     <ion-nav-title>
-        {{ ::current_rubric.title }}
+        {{ ::title }}
     </ion-nav-title>
 
     <ion-content>
@@ -11,7 +11,7 @@
 
         <ion-list>
             <ion-item class="item-thumbnail-left articles"
-                      collection-repeat="article in articles"
+                      ng-repeat="article in articles"
                       href="#/app/article/{{ ::article.article_id }}">
                 <img ng-src="{{ ::article.image_url }}" class="item-image">
                 <span>{{ ::article.title }}</span>
@@ -23,9 +23,9 @@
         </ion-list>
 
         <ion-infinite-scroll
-                ng-if="!stop_loading_articles"
+                ng-if="isArcticles"
                 on-infinite="more_articles()"
-                distance="20%">
+                distance="1%">
         </ion-infinite-scroll>
 
     </ion-content>

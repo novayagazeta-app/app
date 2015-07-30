@@ -1,5 +1,5 @@
 controllers
-.controller('ArticleCtrl', ['$scope', 'http', '$stateParams', ($scope, http, $stateParams) ->
+.controller('ArticleCtrl', ['$scope', 'http_requests', '$stateParams', ($scope, http, $stateParams) ->
 
         $scope.article = {}
         do $scope.show_spinner
