@@ -1,4 +1,4 @@
-controllers
+newspaper_controllers
 .controller('ArticleCtrl', ['$scope', 'http_requests', '$stateParams', ($scope, http, $stateParams) ->
 
         $scope.article = {}

@@ -1,4 +1,4 @@
-controllers
+newspaper_controllers
 .controller('MenuCtrl', ['$scope', 'rubrics', '$ionicLoading', ($scope, rubrics, $ionicLoading) ->
 
         $scope.rubrics = rubrics or []

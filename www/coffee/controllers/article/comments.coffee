@@ -1,4 +1,4 @@
-controllers
+newspaper_controllers
 .controller('CommentsCtrl', ['$scope', 'http_requests', '$stateParams', ($scope, http, $stateParams) ->
 
         make_level = (comments, level=0) ->

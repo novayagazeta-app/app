@@ -6,19 +6,19 @@ newspaper_services
 .factory("http_requests", ["$http", "domain_name", ($http, domain_name) ->
     {
 
-        topnews: (optinos) ->
+        topnews: (options) ->
             $http.get("#{domain_name}/topnews/",
                 params:
-                    limit: if options and options.limit then optinos.limit
-                    offset: if options and options.offset then optinos.offset
+                    limit: if options then options.limit
+                    offset: if options then options.offset
             )
 
-        articles: (limit, offset, rubric_id) ->
+        articles: (options) ->
             $http.get("#{domain_name}/articles/",
                 params:
-                    limit: limit
-                    offset: offset
-                    rubric_id: rubric_id
+                    limit: if options then options.limit
+                    rubric_id: if options then options.rubric_id
+                    offset: if options then options.offset
             )
 
         article: (id) ->

@@ -1,82 +1,36 @@
-controllers
-.controller('ArticlesCtrl', ['$scope', 'http_requests', '$stateParams', 'rubrics',
-    ($scope, http, $stateParams, rubrics) ->
+newspaper_controllers
+.controller('ArticlesCtrl', ['$scope', 'http_requests', '$stateParams', 'rubrics', '$controller',
+    ($scope, http_requests, $stateParams, rubrics, $controller) ->
 
-        _init_parameters = () ->
-            @_limit = 10
-            @_offset = 0;
-            $scope.articles = []
-            do _detect_proper_params
+        # Inherits BaseController
+        $controller "BaseArticlesCtrl", {$scope: $scope}
 
+        rubric_id = parseInt($stateParams.rubricId)
 
-        _detect_proper_params = () ->
-            @_rubric_id = $stateParams.rubricId if $stateParams.rubricId
-            if @_rubric_id
-                $scope.current_rubric = (_.where rubrics, {rubric_id: parseInt(@_rubric_id)})[0]
-                @_http_method = http.articles
-            else
-                $scope.current_rubric = rubrics[0]
-                @_http_method = http.topnews
-
-
-        _make_request = (options) ->
-            success = options.success if options.success
-            done = options.done if options.done
-            limit = if options.limit then options.limit else @_limit
-            offset = if options.offset then options.offset else @_offset
-            rubric_id = if options.rubric_id then options.rubric_id else @_rubric_id
-
-            @_http_method(limit, offset, rubric_id)
-            .success((response) ->
-                success(response) if success
-            )
-            .finally(() ->
-                do done if done
-            )
-
-
-        _stop_infinite_scroll = (articles) ->
-            if articles.length < @_limit
-                $scope.stop_loading_articles = yes
-
-        do _init_parameters
-
-
-        $scope.update_articles = () ->
-            complete = (response) ->
-                _stop_infinite_scroll response.articles
-
-                first_ten_articles = _.first($scope.articles, 10)
-                new_articles = _.filter(response.articles, (val, key) ->
-                    first_ten_articles[key].article_id isnt val.article_id
-                )
-                if new_articles
-                    #TODO: _.union() returns new copy
-                    #$scope.articles = _.union new_articles, $scope.articles
-                    _.each new_articles.reverse(), (article) ->
-                        $scope.articles.unshift article
-
-            done = () ->
-                $scope.$broadcast 'scroll.refreshComplete'
-
-            _make_request {success: complete, done: done, limit: 10, offset:0}
+        $scope.title = _.findWhere(rubrics, {rubric_id: rubric_id}).title
 
 
         $scope.more_articles = () ->
-            complete = (response) ->
-                _stop_infinite_scroll response.articles
+            http_requests.articles({
+                limit: $scope.limit,
+                offset: $scope.offset,
+                rubric_id: rubric_id})
+            .success((response) ->
+                $scope.push response.articles
+            )
+            .finally(->
+                $scope.$broadcast('scroll.infiniteScrollComplete')
+            )
 
-                #TODO: concat() returns new copy
-                #$scope.articles = $scope.articles.concat(response.articles)
-                _.each response.articles, (article) ->
-                    $scope.articles.push article
 
-                @_offset = @_offset + 10
-
-            done = () ->
-                $scope.$broadcast 'scroll.infiniteScrollComplete'
-
-            _make_request {success: complete, done: done}
+        $scope.update_articles = () ->
+            http_requests.articles()
+            .success((response) ->
+                $scope.unshift response.articles
+            )
+            .finally(->
+                $scope.$broadcast('scroll.refreshComplete')
+            )
 
     ]
 )

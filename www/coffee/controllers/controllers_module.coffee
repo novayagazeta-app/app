@@ -1,1 +1,1 @@
-controllers = angular.module('starter.controllers', [])
+newspaper_controllers = angular.module('starter.controllers', [])
