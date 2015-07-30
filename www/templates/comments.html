@@ -8,14 +8,14 @@
     <script type="text/ng-template" id="comment">
       <div class="comment_item l{{ ::comment.level}}">
         <div class="meta">
-          <span class="username">{{ ::comment.author }}</span>
+          <h5 class="username">{{ ::comment.author }}</h5>
         </div>
         <div class="text" ng-bind-html="::comment.text"></div>
       </div>
       <ng-include ng-if="::comment.comments" ng-repeat="comment in ::comment.comments" src="'comment'"></ng-include>
     </script>
 
-    <div class="comments_list">
+    <div class="comments comments_list large">
       <ng-include ng-repeat="comment in ::comments" src="'comment'"></ng-include>
     </div>
   </ion-content>

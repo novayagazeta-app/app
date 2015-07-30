@@ -1,0 +1,33 @@
+.large {
+  font-size: large;
+}
+
+.base {
+  line-height: $line-height;
+  color: $font-color;
+
+  h1 { font-size: 2em; }
+  h2 { font-size: 1.5em; }
+  h3 { font-size: 1.17em; }
+  h4 { font-size: 1.12em; }
+  h5 { font-size: .83em; }
+  h6 { font-size: .75em; }
+
+  a {
+    color: $link-color;
+  }
+
+  blockquote {
+    background: #f9f9f9;
+    padding: 0.5em 10px;
+    quotes: "\201C""\201D""\2018""\2019";
+  }
+  blockquote:before {
+    color: #ccc;
+    content: open-quote;
+    font-size: 4em;
+    line-height: 0.1em;
+    margin-right: 0.25em;
+    vertical-align: -0.4em;
+  }
+}
