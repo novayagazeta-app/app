@@ -1,8 +1,12 @@
 newspaper_controllers
-.controller('ArticleCtrl', ['$scope', 'http_requests', '$stateParams', ($scope, http, $stateParams) ->
+.controller('ArticleCtrl', ['$scope', 'http_requests', '$stateParams', '$ionicSlideBoxDelegate',
+
+    ($scope, http, $stateParams, $ionicSlideBoxDelegate) ->
+
+        do $scope.show_spinner
 
         $scope.article = {}
-        do $scope.show_spinner
+
 
         http.article($stateParams.articleId)
         .success((response) ->
@@ -11,6 +15,9 @@ newspaper_controllers
         .finally(() ->
             do $scope.hide_spinner
         )
+
+        $scope.nextSlide = () ->
+            do $ionicSlideBoxDelegate.next
 
     ]
 )

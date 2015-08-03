@@ -13,5 +13,15 @@
             <br/>
             <div class="content b-article g-content g-clearfix" ng-bind-html="::article.article_body"></div>
         </div>
+
+        <ion-slide-box show-pager="false" on-slide-changed="slideHasChanged($index)">
+
+            <ion-slide ng-repeat="photo in article.photos">
+                <img ng-src="{{photo.image_url}}"/>
+            </ion-slide>
+        </ion-slide-box>
+
+
     </ion-content>
+
 </ion-view>
