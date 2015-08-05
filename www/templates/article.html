@@ -14,10 +14,9 @@
             <div class="content b-article g-content g-clearfix" ng-bind-html="::article.article_body"></div>
         </div>
 
-        <ion-slide-box show-pager="false" on-slide-changed="slideHasChanged($index)">
-
+        <ion-slide-box on-slide-changed="slideChanged(index)" show-pager="false">
             <ion-slide ng-repeat="photo in article.photos">
-                <img ng-src="{{photo.image_url}}"/>
+                <img ng-src="{{photo.image_url}}" class="fullscreen-image" />
             </ion-slide>
         </ion-slide-box>
 
