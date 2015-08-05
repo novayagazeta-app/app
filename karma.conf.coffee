@@ -3,13 +3,15 @@ module.exports = (config) ->
     frameworks: ['jasmine']
 
     files: [
-      './www/lib/angular/angular.min.js'
+      'www/lib/ionic/js/ionic.bundle.js'
       'www/lib/angular-mocks/angular-mocks.js'
       'www/lib/underscore/underscore-min.js'
       'www/lib/linkifyjs/linkify.min.js'
       'www/lib/linkifyjs/linkify-string.min.js'
       'www/js/newspaper.js'
-      'test/spec/**/*.coffee',
+      'test/main.coffee'
+      'test/fixtures/**/*.coffee'
+      'test/spec/**/*.coffee'
     ]
 
     preprocessors: {
