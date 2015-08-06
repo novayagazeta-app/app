@@ -1,20 +1,22 @@
 newspaper_controllers
-.controller('CommentsCtrl', ['$scope', 'http_requests', '$stateParams', ($scope, http, $stateParams) ->
+.controller('CommentsCtrl', ['$scope', '$http', 'domain_name', '$stateParams',
+
+    ($scope, $http, domain_name, $stateParams) ->
 
         make_level = (comments, level=0) ->
-          return _.map comments, (comment) ->
-            comment.level = level
-            comment.comments = make_level(comment.comments, level + 1) if comment.comments
-            return comment
+            return _.map comments, (comment) ->
+                comment.level = level
+                comment.comments = make_level(comment.comments, level + 1) if comment.comments
+                return comment
 
         parse_comment = (comment) ->
-          text = comment.text
-          text = linkifyStr(text) # needs optimization
-          text = text.replace(/(?:\r\n|\r|\n)/g, '<br/>');
-          text = text.replace /(^.*(-|\/|\+){3,})/, '<blockquote>$1</blockquote>'
-          text = text.replace /(^\/".*\/")/, '<blockquote>$1</blockquote>'
-          comment.text = text
-          return comment
+            text = comment.text
+            text = linkifyStr(text) # needs optimization
+            text = text.replace(/(?:\r\n|\r|\n)/g, '<br/>');
+            text = text.replace /(^.*(-|\/|\+){3,})/, '<blockquote>$1</blockquote>'
+            text = text.replace /(^\/".*\/")/, '<blockquote>$1</blockquote>'
+            comment.text = text
+            return comment
 
         _create_child_tree = (elem, comments) ->
             childs = _.where comments, {in_reply_to: elem.comment_id}
@@ -38,9 +40,13 @@ newspaper_controllers
                     result.push node
             return result
 
-        do $scope.show_spinner
 
-        http.comments($stateParams.articleId)
+        get_comments = () ->
+            id = $stateParams.articleId
+            $http.get("#{domain_name}/comments/",
+                params:
+                    "article_id": id
+            )
             .success (response) ->
                 comments = _.map response.comments, parse_comment
                 comments = make_level _create_tree(comments)
@@ -49,5 +55,10 @@ newspaper_controllers
             .finally(() ->
                 do $scope.hide_spinner
             )
+
+        do $scope.show_spinner
+        do get_comments
+
+
     ]
 )
