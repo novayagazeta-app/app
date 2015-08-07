@@ -1,34 +1,31 @@
 newspaper_controllers
-.controller('TopnewsCtrl', ['$scope', '$http', '$controller', 'domain_name',
-    ($scope, $http, $controller, domain_name) ->
+.controller('TopnewsCtrl', ['$scope', 'http_requests', '$controller',
+    ($scope, http_requests, $controller) ->
 
         # Inherits BaseController
         $controller "BaseArticlesCtrl", {$scope: $scope}
 
         $scope.title = "Topnews"
 
-        $scope.make_request = (options) ->
-            $http.get("#{domain_name}/topnews/",
-                params:
-                    limit: options?.limit
-                    offset: options?.offset
-            )
+
+        $scope.more_articles = () ->
+            http_requests.topnews({limit: $scope.limit, offset: $scope.offset})
             .success((response) ->
-                options.success(response) if options.success
+                $scope.push response.articles
             )
             .finally(->
                 $scope.$broadcast('scroll.infiniteScrollComplete')
             )
 
 
-        $scope.more_articles = () ->
-            success = (response) ->
-                $scope.push response.articles
-
-            options = {limit: $scope.limit, offset: $scope.offset}
-            options = _.extend options, {success: success}
-            $scope.make_request options
-
+        $scope.update_articles = () ->
+            http_requests.topnews()
+            .success((response) ->
+                $scope.unshift response.articles
+            )
+            .finally(->
+                $scope.$broadcast('scroll.refreshComplete')
+            )
 
     ]
 )

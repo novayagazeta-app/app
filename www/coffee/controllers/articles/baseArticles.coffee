@@ -28,14 +28,6 @@ newspaper_controllers
                     $scope.articles.unshift article
 
 
-        $scope.update_articles = () ->
-            success = (response) ->
-                $scope.unshift response.articles
-
-            options = {success: success}
-            $scope.make_request options
-
-
         stop_infinite_scroll = (articles) ->
             if articles.length < $scope.limit
                 $scope.isArcticles = no

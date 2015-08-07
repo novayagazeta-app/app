@@ -1,6 +1,5 @@
 newspaper_controllers
-.controller('MenuCtrl', ['$scope', 'rubrics', '$ionicLoading',
-    ($scope, rubrics, $ionicLoading) ->
+.controller('MenuCtrl', ['$scope', 'rubrics', '$ionicLoading', ($scope, rubrics, $ionicLoading) ->
 
         $scope.rubrics = rubrics or []
 
@@ -11,6 +10,6 @@ newspaper_controllers
         )
 
         $scope.hide_spinner = () ->
-            do $ionicLoading.hide
+            $ionicLoading.hide()
 
 ])

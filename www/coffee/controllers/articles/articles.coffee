@@ -1,6 +1,6 @@
 newspaper_controllers
-.controller('ArticlesCtrl', ['$scope', '$http', '$stateParams', 'rubrics', '$controller', 'domain_name',
-    ($scope, $http, $stateParams, rubrics, $controller, domain_name) ->
+.controller('ArticlesCtrl', ['$scope', 'http_requests', '$stateParams', 'rubrics', '$controller',
+    ($scope, http_requests, $stateParams, rubrics, $controller) ->
 
         # Inherits BaseController
         $controller "BaseArticlesCtrl", {$scope: $scope}
@@ -10,29 +10,27 @@ newspaper_controllers
         $scope.title = _.findWhere(rubrics, {rubric_id: rubric_id}).title
 
 
-        $scope.make_request = (options) ->
-            $http.get("#{domain_name}/articles/",
-                params:
-                    limit: options?.limit
-                    rubric_id: options?.rubric_id
-                    offset: options?.offset
-            )
+        $scope.more_articles = () ->
+            http_requests.articles({
+                limit: $scope.limit,
+                offset: $scope.offset,
+                rubric_id: rubric_id})
             .success((response) ->
-                options.success(response) if options.success
+                $scope.push response.articles
             )
             .finally(->
                 $scope.$broadcast('scroll.infiniteScrollComplete')
             )
 
 
-        $scope.more_articles = () ->
-            success = (response) ->
-                $scope.push response.articles
-
-            options = {limit: $scope.limit, offset: $scope.offset, rubric_id: rubric_id}
-            options = _.extend options, {success: success}
-            $scope.make_request options
-
+        $scope.update_articles = () ->
+            http_requests.articles()
+            .success((response) ->
+                $scope.unshift response.articles
+            )
+            .finally(->
+                $scope.$broadcast('scroll.refreshComplete')
+            )
 
     ]
 )
