@@ -13,12 +13,12 @@
             <ion-item class="item-thumbnail-left articles"
                       ng-repeat="article in articles"
                       href="#/app/article/{{ ::article.article_id }}">
-                <img ng-src="{{ ::article.image_url }}" class="item-image">
+                <img ng-src="{{ ::article.image_url || 'img/no-photo.gif' }}" class="item-image">
                 <span>{{ ::article.title }}</span>
-                <p>
-                    <i class="icon ion-ios-eye-outline"></i> {{ ::article.views_count }}
-                    <i class="icon ion-ios-chatbubble-outline"></i> {{ ::article.comments_count }}
-                </p>
+                <div class="meta">
+                    <i class="icon ion-eye"></i> {{ ::article.views_count }}
+                    <i class="icon ion-chatbubbles"></i> {{ ::article.comments_count }}
+                </div>
             </ion-item>
         </ion-list>
 

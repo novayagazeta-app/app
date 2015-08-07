@@ -5,7 +5,7 @@ newspaper_controllers
         # Inherits BaseController
         $controller "BaseArticlesCtrl", {$scope: $scope}
 
-        $scope.title = "Topnews"
+        $scope.title = "Топ новостей"
 
 
         $scope.more_articles = () ->

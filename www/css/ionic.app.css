@@ -7949,8 +7949,12 @@ strong, th {
   padding-left: 215px; }
 
 .articles.item-thumbnail-left .item-content .item-image {
-  border-radius: 40px; }
+  border-radius: 5px;
+  object-fit: cover; }
 .articles .item-content span {
   white-space: normal; }
-.articles .item-complex .item-content {
+.articles.item-complex .item-content {
   padding-right: 10px; }
+.articles .meta {
+  font-size: small;
+  padding-top: 5px; }

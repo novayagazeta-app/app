@@ -5,7 +5,7 @@
 newspaper_services
 .constant("rubrics", [
         {
-            title: "Топ новости"
+            title: "Топ новостей"
         },
         {
             rubric_id: 999

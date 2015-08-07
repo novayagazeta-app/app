@@ -27,14 +27,20 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 
 .articles {
   &.item-thumbnail-left .item-content .item-image {
-    border-radius: 40px;
+    border-radius: 5px;
+    object-fit: cover;
   }
 
   .item-content span {
     white-space: normal;
   }
 
-  .item-complex .item-content {
+  &.item-complex .item-content {
     padding-right: 10px;
+  }
+
+  .meta {
+    font-size: small;
+    padding-top: 5px;
   }
 }
