@@ -15,30 +15,28 @@ app.factory 'utils', ->
     return comment
 
   comments_parser = (comments) ->
-    _create_child_tree = (elem, comments) ->
-      childs = _.where comments, {in_reply_to: elem.comment_id}
-      if childs.length
-        elem["comments"] = []
-        _.each childs, (child) ->
-          elem["comments"].push _create_child_tree child, comments
-      return elem
+    callback = (comments, comments_tree) ->
+      unless comments
+        return comments_tree
 
+      comment = comments.shift()
 
-    _create_tree = (comments) ->
-      sorted_comments = _.sortBy(comments, (elem) ->
-        return elem.comment_id
-      )
+      unless comment
+        return comments_tree
 
-      result = []
-      _.each sorted_comments, (val) ->
-        node = val
-        unless val.in_reply_to
-          node = _create_child_tree node, comments
-          result.push node
-      return result
+      unless comment.in_reply_to
+        comments_tree.unshift comment
+      else
+        _.map _.where(comments, {comment_id: comment.in_reply_to}), (i) -> i.comments.unshift comment
 
+      return callback(comments, comments_tree)
+
+    comments = _.sortBy comments, (i) -> i.comment_id
+    comments = _.map comments, (i) ->
+      i.comments = []
+      return i
     comments = _.map comments, parse_comment
-    comments = _create_tree(comments)
+    comments = callback(comments.reverse(), [])
     comments = prepare_comments comments
     return comments
 
