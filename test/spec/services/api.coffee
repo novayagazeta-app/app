@@ -1,4 +1,4 @@
-describe "Example", ->
+describe "API", ->
   $httpBackend = {}
   api = {}
   limit = 10

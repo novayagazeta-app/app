@@ -3,5 +3,4 @@ app.controller 'CommentsCtrl', ($scope, $stateParams, api, utils) ->
 
   api.comments($stateParams.articleId)
   .success (data) -> $scope.comments = utils.comments_parser data.comments
-
-  .finally () -> do $scope.hide_spinner
+  .finally -> do $scope.hide_spinner
