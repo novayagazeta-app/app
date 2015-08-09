@@ -2,6 +2,11 @@
   "name": "newspaper",
   "app_id": "",
   "gulpStartupTasks": ["sass", "coffee", "watch"],
+  "watchPatterns": [
+    "www/index.html",
+    "www/templates/**/*.html",
+    "www/coffee/**/*.coffee"
+  ],
   "proxies": [
       {
         "path": "/topnews/",
