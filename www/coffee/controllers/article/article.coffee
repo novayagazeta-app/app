@@ -1,23 +1,10 @@
-newspaper_controllers
-.controller('ArticleCtrl', ['$scope', 'http_requests', '$stateParams', '$ionicSlideBoxDelegate',
+app.controller 'ArticleCtrl', ($scope, $stateParams, $ionicSlideBoxDelegate, api) ->
+  do $scope.show_spinner
 
-    ($scope, http, $stateParams, $ionicSlideBoxDelegate) ->
+  $scope.article = {}
 
-        do $scope.show_spinner
+  api.article($stateParams.articleId)
+  .success (data) -> $scope.article = data
+  .finally -> do $scope.hide_spinner
 
-        $scope.article = {}
-
-
-        http.article($stateParams.articleId)
-        .success((response) ->
-            $scope.article = response
-        )
-        .finally(() ->
-            do $scope.hide_spinner
-        )
-
-        $scope.nextSlide = () ->
-            do $ionicSlideBoxDelegate.next
-
-    ]
-)
+  $scope.nextSlide = -> do $ionicSlideBoxDelegate.next

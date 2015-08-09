@@ -8,22 +8,26 @@ module.exports = (config) ->
       'www/lib/underscore/underscore-min.js'
       'www/lib/linkifyjs/linkify.min.js'
       'www/lib/linkifyjs/linkify-string.min.js'
+      'www/templates/**/*.html'
       'www/js/newspaper.js'
       'test/main.coffee'
       'test/fixtures/**/*.coffee'
       'test/spec/**/*.coffee'
     ]
 
-    preprocessors: {
+    preprocessors:
       'www/coffee/**/*.coffee': ['coffee']
       'test/**/*.coffee': ['coffee']
-    }
-
+      'www/templates/**/*.html': ['ng-html2js']
 
     coffeePreprocessor:
       options:
         bare: yes
         sourceMap: no
+
+    ngHtml2JsPreprocessor:
+      stripPrefix: 'www/'
+      moduleName: 'templates'
 
     reporters: ['progress']
     port: 9876

@@ -1,12 +1,13 @@
 describe "Example", ->
   $httpBackend = {}
-  http_requests = {}
+  api = {}
   limit = 10
   offset = 0
   rubric_id = 20
   article_id = 'news1695694'
 
-  beforeEach module 'starter.services'
+  beforeEach module 'templates'
+  beforeEach module 'app'
 
   beforeEach inject ($injector) ->
     $httpBackend = $injector.get '$httpBackend'
@@ -15,8 +16,8 @@ describe "Example", ->
     $httpBackend.when('GET', "/article/?article_id=#{article_id}").respond(fixtures.article)
     $httpBackend.when('GET', "/comments/?article_id=#{article_id}").respond(fixtures.comments)
 
-  beforeEach inject (_http_requests_) ->
-    http_requests = _http_requests_
+  beforeEach inject (_api_) ->
+    api = _api_
 
   afterEach ->
     do $httpBackend.verifyNoOutstandingExpectation
@@ -28,7 +29,7 @@ describe "Example", ->
       expect(data.articles_count).toBe '91953'
       expect(data.error.code).toBe 200
 
-    http_requests.topnews
+    api.topnews
       limit: limit
       offset: offset
     .success callback
@@ -41,10 +42,9 @@ describe "Example", ->
       expect(data.articles_count).toBe '91953'
       expect(data.error.code).toBe 200
 
-    http_requests.articles
+    api.articles rubric_id,
       limit: limit
       offset: offset
-      rubric_id: rubric_id
     .success callback
 
     do $httpBackend.flush
@@ -53,7 +53,7 @@ describe "Example", ->
     callback = (data) ->
       expect(data.article_id).toBe article_id
 
-    http_requests.article article_id
+    api.article article_id
     .success callback
 
     do $httpBackend.flush
@@ -62,9 +62,7 @@ describe "Example", ->
     callback = (data) ->
       expect(data.comments.length).toBe 3
 
-    http_requests.comments article_id
+    api.comments article_id
     .success callback
 
     do $httpBackend.flush
-
-
