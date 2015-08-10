@@ -29,7 +29,7 @@ describe "API", ->
       expect(data.articles_count).toBe '91953'
       expect(data.error.code).toBe 200
 
-    api.topnews
+    api.articles 'topnews',
       limit: limit
       offset: offset
     .success callback

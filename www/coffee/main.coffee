@@ -15,13 +15,6 @@ app.config ($stateProvider, $urlRouterProvider) ->
     templateUrl: "templates/menu.html"
     controller: 'MenuCtrl'
 
-  $stateProvider.state 'app.topnews',
-    url: "/topnews"
-    views:
-      menuContent:
-        templateUrl: "templates/articles.html"
-        controller: 'TopnewsCtrl'
-
   $stateProvider.state 'app.news',
     url: "/rubric/:rubricId"
     views:
@@ -43,4 +36,4 @@ app.config ($stateProvider, $urlRouterProvider) ->
         templateUrl: "templates/comments.html"
         controller: 'CommentsCtrl'
 
-  $urlRouterProvider.otherwise '/app/topnews'
+  $urlRouterProvider.otherwise '/app/rubric/topnews'

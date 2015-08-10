@@ -1,5 +1,6 @@
 app.constant "rubrics", [
   title: "Топ новостей"
+  rubric_id: "topnews"
 ,
   rubric_id: 999
   title: "Главная на день"

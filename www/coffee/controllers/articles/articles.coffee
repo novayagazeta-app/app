@@ -1,7 +1,7 @@
 app.controller "ArticlesCtrl", ($scope, api, $stateParams, rubrics, $controller) ->
   $controller "BaseArticlesCtrl", {$scope: $scope}
 
-  rubric_id = parseInt($stateParams.rubricId, 10)
+  rubric_id = parseInt($stateParams.rubricId, 10) or $stateParams.rubricId
 
   $scope.title = _.findWhere(rubrics, {rubric_id: rubric_id}).title
 
