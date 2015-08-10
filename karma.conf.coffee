@@ -4,6 +4,9 @@ module.exports = (config) ->
 
     files: [
       'www/lib/ionic/js/ionic.bundle.js'
+      'www/lib/angulartics/dist/angulartics.min.js'
+      'www/lib/angulartics/dist/angulartics-debug.min.js'
+      'www/lib/angulartics/dist/angulartics-ga-cordova-google-analytics-plugin.min.js'
       'www/lib/angular-mocks/angular-mocks.js'
       'www/lib/underscore/underscore-min.js'
       'www/lib/linkifyjs/linkify.min.js'

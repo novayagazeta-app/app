@@ -1,12 +1,30 @@
-app = angular.module('app', ['ionic'])
+debug = yes
 
-app.run ($ionicPlatform) ->
+requires = [
+    'ionic'
+    'angulartics'
+    'angulartics.google.analytics.cordova'
+]
+
+requires.push 'angulartics.debug' if debug
+
+app = angular.module 'app', requires
+
+app.config (googleAnalyticsCordovaProvider) ->
+    console.log 'googleAnalyticsCordovaProvider', googleAnalyticsCordovaProvider
+    googleAnalyticsCordovaProvider.trackingId = 'UA-66156255-1'
+    googleAnalyticsCordovaProvider.period = 20
+    googleAnalyticsCordovaProvider.debug = yes # ToDo: turn on in production
+
+app.run ($ionicPlatform, $analytics) ->
     $ionicPlatform.ready ->
         if window.cordova and window.cordova.plugins.Keyboard
             cordova.plugins.Keyboard.hideKeyboardAccessoryBar(yes)
         if window.StatusBar
             StatusBar.styleDefault()
 
+        $analytics.eventTrack 'start_app',
+            category: 'core'
 
 app.config ($stateProvider, $urlRouterProvider) ->
     $stateProvider.state 'app',
