@@ -4,6 +4,7 @@ var bower = require('bower');
 var concat = require('gulp-concat');
 var sass = require('gulp-sass');
 var coffee = require('gulp-coffee');
+var coffeelint = require('gulp-coffeelint');
 var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var sh = require('shelljs');
@@ -19,8 +20,13 @@ var paths = {
 
 gulp.task('default', ['sass', 'coffee']);
 
+gulp.task('lint', function () {
+    gulp.src(paths.coffee)
+        .pipe(coffeelint())
+        .pipe(coffeelint.reporter())
+});
 
-gulp.task('coffee', function () {
+gulp.task('coffee', ['lint'], function () {
     gulp.src(paths.coffee)
         .pipe(concat('newspaper.coffee'))
         .pipe(coffee({bare: true}).on('error', gutil.log))
