@@ -4,7 +4,7 @@ describe "API", ->
   limit = 10
   offset = 0
   rubric_id = 20
-  article_id = 'news1695694'
+  article_id = 'news1695764'
 
   beforeEach module 'templates'
   beforeEach module 'app'

@@ -1,17 +1,18 @@
 fixtures.article =
-  'article_id': 'news1695694'
-  'author_info': []
-  'article_body': '<p>Обломок крыла самолета, найденный ранее на острове Реюнион, принадлежит пропавшему &laquo;Боингу&raquo; Malaysia Airlines MH370, сообщил премьер-министр Малайзии Наджиба Разака, <a href="http://www.bbc.com/news/world-asia-33794012" target="_blank">сообщает</a> &laquo;Би-би-си&raquo;.</p>\n\n<p><span>&laquo;Международная группа экспертов подтвердила, что найденные на Реюньоне обломки принадлежат рейсу MH370&raquo;, - заявил Разака.</span></p>\n\n<p>29 июля на одном из пляжей Реюньона к востоку от Мадагаскара был обнаружен обломок самолета. 3 августа группа экспертов во французском городе Тулузе приступила к изучению доставленного обломка.</p>\n\n<p>Фрагмент был покрыт морскими раковинами, что свидетельствует о том, что он достаточно долго пробыл в морской воде.</p>\n\n<p>&laquo;Боинг 777&raquo; вылетел из Куала-Лумпура в Пекин 8 марта 2014 года и исчез спустя час после взлета. На борту находились 239 человек.</p>\n'
-  'source_url': 'http://www.novayagazeta.ru/news/1695694.html'
-  'description': ''
-  'related': []
-  'subtitle': ''
-  'publish_date': '2015-08-05'
-  'error':
-    'description': 'Success'
-    'code': 200
-  'image_url': 'http://www.novayagazeta.ru/storage/c/2015/08/05/1438798864_182505_12.jpg'
-  'type': 'news'
-  'title': 'Премьер Малайзии подтвердил принадлежность найденного обломка пропавшему "Боингу"'
-  'views_count': '223'
-  'comments_count': 0
+    article_id: "news1695764"
+    author_info: [0]
+    article_body: "<p>Спикер Госдумы Сергей Нарышкин...</p>"
+    source_url: "http://www.novayagazeta.ru/news/1695764.html"
+    description: ""
+    related: [0]
+    subtitle: ""
+    publish_date: "2015-08-10"
+    error: {
+        description: "Success"
+        code: 200
+    }
+    image_url: "http://www.novayagazeta.ru/storage/c/2015/08/10/1439183186_801952_47.png"
+    type: "news"
+    title: 'В Госдуме пообещали США "трибунал" за "сфабрикованную" версию крушения "Боинга"'
+    views_count: "18269"
+    comments_count: 81
