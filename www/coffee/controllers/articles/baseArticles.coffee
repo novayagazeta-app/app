@@ -10,7 +10,7 @@ app
         stop_infinite_scroll new_articles
 
         # Updates $scope.offset
-        $scope.offset = $scope.offset + 10
+        $scope.offset = $scope.offset + settings.limit
 
         # Push new_articles
         _.each new_articles, (new_article) ->
