@@ -31,4 +31,3 @@ describe "Article", ->
         expect(scope.article).toBeDefined()
         expect(scope.article.title).toBeDefined()
         expect(scope.article.article_body).toBeDefined()
-
