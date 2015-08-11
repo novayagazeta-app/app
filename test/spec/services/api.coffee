@@ -38,8 +38,8 @@ describe "API", ->
 
   it 'should get all articles', ->
     callback = (data) ->
-      expect(data.articles.length).toBe 10
-      expect(data.articles_count).toBe '91953'
+      expect(data.articles.length).toBe 25
+      expect(data.articles_count).toBe '92068'
       expect(data.error.code).toBe 200
 
     api.articles rubric_id,
