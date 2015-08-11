@@ -22,6 +22,6 @@ app.controller "ArticlesCtrl", ($scope, api, $stateParams, rubrics, $controller,
             category: 'UI'
             label: $scope.title
 
-        api.articles()
+        api.articles(rubric_id)
         .success (data) -> $scope.unshift data.articles
         .finally -> $scope.$broadcast("scroll.refreshComplete")
