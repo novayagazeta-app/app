@@ -1,20 +1,23 @@
-debug = yes
+debug = yes # ToDo: turn on in production
 
 requires = [
     'ionic'
     'angulartics'
-    'angulartics.google.analytics.cordova'
 ]
 
+
+requires.push 'angulartics.google.analytics.cordova' if ionic.Platform.isWebView()
 requires.push 'angulartics.debug' if debug
 
 app = angular.module 'app', requires
 
-app.config (googleAnalyticsCordovaProvider) ->
-    console.log 'googleAnalyticsCordovaProvider', googleAnalyticsCordovaProvider
-    googleAnalyticsCordovaProvider.trackingId = 'UA-66156255-1'
-    googleAnalyticsCordovaProvider.period = 20
-    googleAnalyticsCordovaProvider.debug = yes # ToDo: turn on in production
+
+if ionic.Platform.isWebView()
+    app.config (googleAnalyticsCordovaProvider) ->
+        console.log 'googleAnalyticsCordovaProvider', googleAnalyticsCordovaProvider
+        googleAnalyticsCordovaProvider.trackingId = 'UA-66156255-1'
+        googleAnalyticsCordovaProvider.period = 20
+        googleAnalyticsCordovaProvider.debug = debug
 
 app.run ($ionicPlatform, $analytics) ->
     $ionicPlatform.ready ->
