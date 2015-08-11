@@ -21,6 +21,10 @@ app
         new_articles = _.filter(new_articles, (val, key) ->
             $scope.articles[key].article_id isnt val.article_id
         )
+
+        # Updates $scope.offset
+        $scope.offset = $scope.offset + new_articles.length
+
         if new_articles
             _.each new_articles.reverse(), (article) ->
                 $scope.articles.unshift article
