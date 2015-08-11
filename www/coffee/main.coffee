@@ -9,7 +9,12 @@ requires = [
 requires.push 'angulartics.google.analytics.cordova' if ionic.Platform.isWebView()
 requires.push 'angulartics.debug' if debug
 
+
 app = angular.module 'app', requires
+
+
+app.config ($sceProvider) -> $sceProvider.enabled no
+
 
 
 if ionic.Platform.isWebView()
@@ -18,6 +23,7 @@ if ionic.Platform.isWebView()
         googleAnalyticsCordovaProvider.trackingId = 'UA-66156255-1'
         googleAnalyticsCordovaProvider.period = 20
         googleAnalyticsCordovaProvider.debug = debug
+
 
 app.run ($ionicPlatform, $analytics) ->
     $ionicPlatform.ready ->

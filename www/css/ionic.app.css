@@ -7713,6 +7713,8 @@ a.button {
 
 .article {
   padding: 0 10px; }
+  .article iframe {
+    width: 100%; }
   .article .title {
     font-weight: normal; }
   .article .content p img {
