@@ -7707,6 +7707,10 @@ a.button {
     margin-right: 0.25em;
     vertical-align: -0.4em; }
 
+.button.button-icon.comments_count {
+  font-size: small;
+  vertical-align: top; }
+
 .article {
   padding: 0 10px; }
   .article .title {
