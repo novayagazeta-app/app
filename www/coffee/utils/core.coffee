@@ -9,8 +9,8 @@ app.factory 'utils', ->
         text = comment.text
         text = linkifyStr(text) # needs optimization
         text = text.replace(/(?:\r\n|\r|\n)/g, '<br/>')
-        text = text.replace /(^.*(-|\/|\+){3,})/, '<blockquote>$1</blockquote>'
-        text = text.replace /(^\/".*\/")/, '<blockquote>$1</blockquote>'
+#        text = text.replace /(^.*(-|\/|\+){3,})/, '<blockquote>$1</blockquote>'
+#        text = text.replace /(^\/".*\/")/, '<blockquote>$1</blockquote>'
         comment.text = text
         return comment
 

@@ -7696,16 +7696,9 @@ a.button {
   .base a, .article a, .comments a {
     color: #e55c53; }
   .base blockquote, .article blockquote, .comments blockquote {
-    background: #f9f9f9;
-    padding: 0.5em 10px;
-    quotes: "\201C" "\201D" "\2018" "\2019"; }
-  .base blockquote:before, .article blockquote:before, .comments blockquote:before {
-    color: #ccc;
-    content: open-quote;
-    font-size: 4em;
-    line-height: 0.1em;
-    margin-right: 0.25em;
-    vertical-align: -0.4em; }
+    padding: 10px 20px;
+    margin: 0 0 20px;
+    border-left: 5px solid #eee; }
 
 .button.button-icon.comments_count {
   font-size: small;
@@ -7720,7 +7713,8 @@ a.button {
   .article .content p img {
     max-width: 100%; }
   .article .content table {
-    max-width: 100%; }
+    max-width: 100%;
+    width: auto !important; }
   .article .content sup {
     top: 0; }
 

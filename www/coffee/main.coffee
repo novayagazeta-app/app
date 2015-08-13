@@ -15,6 +15,8 @@ app = angular.module 'app', requires
 
 app.config ($sceProvider) -> $sceProvider.enabled no
 
+app.config ($ionicConfigProvider) -> $ionicConfigProvider.backButton.text ''
+
 
 
 if ionic.Platform.isWebView()
