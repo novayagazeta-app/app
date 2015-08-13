@@ -1,5 +1,14 @@
-app.controller 'ArticleCtrl', ($scope, $stateParams, $ionicSlideBoxDelegate, api) ->
+app.controller 'ArticleCtrl', ($scope, $stateParams, $ionicSlideBoxDelegate,
+    $cordovaSocialSharing, $analytics, api) ->
+
     do $scope.show_spinner
+
+    $scope.share = ->
+        $analytics.eventTrack 'share',
+            category: 'UI'
+        
+        $cordovaSocialSharing.share($scope.article.title,
+            null, $scope.article.image_url, $scope.article.source_url)
 
     $scope.article = {}
 

@@ -2,6 +2,7 @@ debug = yes # ToDo: turn on in production
 
 requires = [
     'ionic'
+    'ngCordova'
     'angulartics'
 ]
 

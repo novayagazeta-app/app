@@ -4,6 +4,9 @@
     </ion-nav-title>
 
     <ion-nav-buttons side="secondary">
+        <button
+                ng-click="share()"
+                class="button button-icon icon ion-ios-upload-outline"></button>
         <a ng-class="{disabled: !article.comments_count}" class="button button-icon icon ion-ios-chatbubble-outline comments_count" href="#/app/comments/{{ ::article.article_id }}">{{ ::article.comments_count }}</a>
     </ion-nav-buttons>
 
