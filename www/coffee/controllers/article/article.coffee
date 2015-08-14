@@ -1,5 +1,5 @@
 app.controller 'ArticleCtrl', ($scope, $stateParams, $ionicSlideBoxDelegate,
-    $cordovaSocialSharing, $analytics, api) ->
+    $cordovaSocialSharing, $analytics, api, $timeout) ->
 
     do $scope.show_spinner
 
@@ -17,3 +17,8 @@ app.controller 'ArticleCtrl', ($scope, $stateParams, $ionicSlideBoxDelegate,
     .finally -> do $scope.hide_spinner
 
     $scope.nextSlide = -> do $ionicSlideBoxDelegate.next
+
+
+    $timeout (->
+        $( '.swipebox' ).swipebox()
+    )

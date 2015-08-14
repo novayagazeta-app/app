@@ -17,12 +17,13 @@
             <div class="content b-article g-content g-clearfix" ng-bind-html="::article.article_body"></div>
         </div>
 
-        <ion-slide-box on-slide-changed="slideChanged(index)" show-pager="false">
-            <ion-slide ng-repeat="photo in article.photos">
-                <img ng-src="{{photo.image_url}}" class="fullscreen-image" />
-            </ion-slide>
-        </ion-slide-box>
-
+        <ul>
+            <li ng-repeat="photo in article.photos">
+                <a href="{{photo.image_url}}" class="swipebox" title="{{photo.title}}">
+                    <img src="{{photo.image_url}}" alt="image">
+                </a>
+            </li>
+        </ul>
 
     </ion-content>
 
