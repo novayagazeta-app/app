@@ -42,7 +42,6 @@ describe "Articles", ->
         it 'get rubric "politics"', ->
             stateParams.rubricId = 8
             do createController
-            console.log "opopo", limit, offset
 
             do scope.more_articles
             expect(scope.title).toEqual("Политика")

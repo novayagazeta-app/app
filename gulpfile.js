@@ -10,15 +10,26 @@ var rename = require('gulp-rename');
 var sh = require('shelljs');
 var karma = require("gulp-karma");
 var Server = require('karma').Server;
+var args   = require('yargs').argv;
 
 
 var paths = {
     sass: ['./scss/**/*.scss'],
     coffee: ['./www/coffee/**/*.coffee'],
-    test: ['test/spec/**/*.coffee']
+    test: ['test/spec/**/*.coffee'],
+    conf: ['./www/conf/**/*.coffee']
 };
 
-gulp.task('default', ['sass', 'coffee']);
+var env = args.env || 'dev';
+
+gulp.task('default', ['sass', 'coffee', 'conf']);
+
+
+gulp.task('conf', function(){
+  gulp.src('./www/conf/' + env +'/conf.coffee')
+    .pipe(coffee({bare: true}).on('error', gutil.log))
+    .pipe(gulp.dest('./www/js/'))
+});
 
 gulp.task('lint', function () {
     gulp.src(paths.coffee)
@@ -48,9 +59,10 @@ gulp.task('sass', function (done) {
         .on('end', done);
 });
 
-gulp.task('watch', function () {
+gulp.task('watch', ['default'], function () {
     gulp.watch(paths.sass, ['sass']);
     gulp.watch(paths.coffee, ['coffee']);
+    gulp.watch(paths.conf, ['conf']);
 });
 
 gulp.task('install', ['git-check'], function () {
@@ -81,4 +93,8 @@ gulp.task("karma", function (done) {
   }, done).start();
 });
 
-gulp.task("test", ["default", "karma"]);
+gulp.task("env:test", function(){
+  env = 'test';
+});
+
+gulp.task("test", ["env:test", "default", "karma"]);

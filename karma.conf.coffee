@@ -4,6 +4,7 @@ module.exports = (config) ->
 
     files: [
       'www/lib/ionic/js/ionic.bundle.js'
+      'www/lib/ngCordova/dist/ng-cordova.js'
       'www/lib/angulartics/dist/angulartics.min.js'
       'www/lib/angulartics/dist/angulartics-debug.min.js'
       'www/lib/angulartics/dist/angulartics-ga-cordova-google-analytics-plugin.min.js'
@@ -12,6 +13,7 @@ module.exports = (config) ->
       'www/lib/linkifyjs/linkify.min.js'
       'www/lib/linkifyjs/linkify-string.min.js'
       'www/templates/**/*.html'
+      'www/js/conf.js'
       'www/js/newspaper.js'
       'test/main.coffee'
       'test/fixtures/**/*.coffee'
