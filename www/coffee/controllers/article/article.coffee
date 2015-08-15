@@ -1,5 +1,5 @@
 app.controller 'ArticleCtrl', ($scope, $stateParams, $ionicSlideBoxDelegate,
-    $cordovaSocialSharing, $analytics, api, $timeout) ->
+    $cordovaSocialSharing, $analytics, api) ->
 
     do $scope.show_spinner
 
@@ -13,12 +13,15 @@ app.controller 'ArticleCtrl', ($scope, $stateParams, $ionicSlideBoxDelegate,
     $scope.article = {}
 
     api.article($stateParams.articleId)
-    .success (data) -> $scope.article = data
+    .success (data) ->
+        prepare_photos(data) if data.photos
+        $scope.article = data
     .finally -> do $scope.hide_spinner
 
     $scope.nextSlide = -> do $ionicSlideBoxDelegate.next
 
 
-    $timeout (->
-        $( '.swipebox' ).swipebox()
-    )
+    prepare_photos = (data) ->
+        _.map data.photos, (photo) ->
+            photo.href = photo.image_url
+        return data

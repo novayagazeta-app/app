@@ -17,13 +17,7 @@
             <div class="content b-article g-content g-clearfix" ng-bind-html="::article.article_body"></div>
         </div>
 
-        <ul>
-            <li ng-repeat="photo in article.photos">
-                <a href="{{photo.image_url}}" class="swipebox" title="{{photo.title}}">
-                    <img src="{{photo.image_url}}" alt="image">
-                </a>
-            </li>
-        </ul>
+        <ng-swipebox photos="article.photos"></ng-swipebox>
 
     </ion-content>
 

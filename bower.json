@@ -10,6 +10,7 @@
     "linkifyjs": "v2.0.0-beta.1",
     "angulartics": "~0.20.0",
     "ngCordova": "~0.1.20-alpha",
-    "swipebox": "https://github.com/brutaldesign/swipebox.git#~1.4.1"
+    "swipebox": "https://github.com/brutaldesign/swipebox.git#~1.4.1",
+    "angular-swipebox": "git@github.com:novayagazeta-app/angular-swipebox.git"
   }
 }
