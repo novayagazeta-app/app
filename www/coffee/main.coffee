@@ -2,6 +2,7 @@ requires = [
     'ionic'
     'ngCordova'
     'angulartics'
+    'ngSwipebox'
 ]
 
 
