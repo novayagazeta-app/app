@@ -24,6 +24,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 @import "base";
 @import "content";
 @import "comments";
+@import "photo-swipebox";
 
 .articles {
   &.item-thumbnail-left .item-content .item-image {

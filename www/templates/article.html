@@ -17,7 +17,9 @@
             <div class="content b-article g-content g-clearfix" ng-bind-html="::article.article_body"></div>
         </div>
 
-        <ng-swipebox photos="article.photos"></ng-swipebox>
+        <div class="wrap small-width">
+            <ng-swipebox id="box-container" photos="article.photos"></ng-swipebox>
+        </div>
 
     </ion-content>
 

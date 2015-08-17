@@ -7948,6 +7948,40 @@ strong, th {
 .comments_list .comment_item.l20 {
   padding-left: 215px; }
 
+.small-width {
+  max-width: 740px; }
+
+.wrap {
+  margin: 0 auto;
+  max-width: 1140px;
+  width: 92%; }
+
+#box-container {
+  margin: 0;
+  padding: 0; }
+  #box-container li {
+    list-style-type: none;
+    float: left;
+    margin-bottom: 1rem;
+    margin-left: 1%;
+    margin-right: 1%;
+    width: 48%; }
+  @media screen and (max-width: 410px) {
+    #box-container li {
+      width: 100%;
+      margin-left: 0;
+      margin-right: 0; } }
+  #box-container li a {
+    display: block;
+    width: 100%;
+    height: auto; }
+    #box-container li a img {
+      -webkit-back-visibility: hidden;
+      display: block;
+      width: 100%;
+      height: auto;
+      vertical-align: bottom; }
+
 .articles.item-thumbnail-left .item-content .item-image {
   border-radius: 5px;
   object-fit: cover; }
