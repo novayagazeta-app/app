@@ -24,4 +24,5 @@ app.controller 'ArticleCtrl', ($scope, $stateParams, $ionicSlideBoxDelegate,
     prepare_photos = (data) ->
         _.map data.photos, (photo) ->
             photo.href = photo.image_url
+            photo.title = '' if photo.title?.length < 3
         return data

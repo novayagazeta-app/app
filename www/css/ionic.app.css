@@ -7956,6 +7956,12 @@ strong, th {
   max-width: 1140px;
   width: 92%; }
 
+#swipebox-title {
+  padding: 0 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; }
+
 #box-container {
   margin: 0;
   padding: 0; }
