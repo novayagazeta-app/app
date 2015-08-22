@@ -1,5 +1,5 @@
 app.controller 'ArticleCtrl', ($scope, $stateParams, $ionicSlideBoxDelegate,
-    $cordovaSocialSharing, $analytics, api, raven) ->
+    $cordovaSocialSharing, $analytics, api) ->
 
     do $scope.show_spinner
 

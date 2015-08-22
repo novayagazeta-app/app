@@ -18,6 +18,7 @@ angular.module("exceptionHandle", [])
         ])
     ])
 
+    # Factory 'raven' for external call method captureException()
     .factory("raven", () ->
         return Raven
     )
