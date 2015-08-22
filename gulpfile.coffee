@@ -9,6 +9,7 @@ minifyCss = require "gulp-minify-css"
 rename = require "gulp-rename"
 sh = require "shelljs"
 karma = require "gulp-karma"
+preen       = require "preen"
 Server = require("karma").Server
 args = require("yargs").argv
 
@@ -22,7 +23,11 @@ paths =
 env = args.env or "dev"
 
 
-gulp.task "default", ["sass", "coffee", "conf"]
+gulp.task "default", ["sass", "coffee", "conf", "preen:bower"]
+
+
+gulp.task "preen:bower", (cb) ->
+    preen.preen({}, cb)
 
 
 gulp.task "conf", ->
