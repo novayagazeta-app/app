@@ -3,6 +3,7 @@ requires = [
     'ngCordova'
     'angulartics'
     'ngSwipebox'
+    'exceptionHandle'
 ]
 
 
