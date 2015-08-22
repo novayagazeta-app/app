@@ -1,4 +1,5 @@
 conf =
-  debug: yes
-  env: 'test'
-  gaId: ''
+    debug: yes
+    env: 'test'
+    gaId: ''
+    DSN: ''

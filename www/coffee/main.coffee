@@ -18,32 +18,33 @@ app.config ($sceProvider) -> $sceProvider.enabled no
 
 app.config ($ionicConfigProvider) -> $ionicConfigProvider.backButton.text ''
 
-app.config ($provide) ->
-    $provide.decorator '$browser', ($delegate) ->
-        origUrl = $delegate.url
-        pendingHref = null
-        pendingHrefTimer = null
+if ionic.Platform.isIOS() and ionic.Platform.version() == 9
+    app.config ($provide) ->
+        $provide.decorator '$browser', ($delegate) ->
+            origUrl = $delegate.url
+            pendingHref = null
+            pendingHrefTimer = null
 
-        newUrl = (url, replace, state) ->
-            if url
-                result = origUrl(url, replace, state)
+            newUrl = (url, replace, state) ->
+                if url
+                    result = origUrl(url, replace, state)
 
-                unless window.location.href == url
-                    unless pendingHref == url
-                        pendingHref = url
-                        clearTimeout(pendingHrefTimer) if pendingHrefTimer
-                        pendingHrefTimer = setTimeout ->
-                            pendingHref = null if window.location.href == pendingHref
-                            pendingHrefTimer = null
-                        , 0
-                return result
+                    unless window.location.href == url
+                        unless pendingHref == url
+                            pendingHref = url
+                            clearTimeout(pendingHrefTimer) if pendingHrefTimer
+                            pendingHrefTimer = setTimeout ->
+                                pendingHref = null if window.location.href == pendingHref
+                                pendingHrefTimer = null
+                            , 0
+                    return result
 
-            else
-                pendingHref = null if pendingHref == window.location.href
-                return pendingHref or origUrl(url, replace, state)
+                else
+                    pendingHref = null if pendingHref == window.location.href
+                    return pendingHref or origUrl(url, replace, state)
 
-        $delegate.url = newUrl
-        return $delegate
+            $delegate.url = newUrl
+            return $delegate
 
 
 
