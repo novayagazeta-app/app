@@ -16,7 +16,9 @@ app = angular.module 'app', requires
 
 app.config ($sceProvider) -> $sceProvider.enabled no
 
-app.config ($ionicConfigProvider) -> $ionicConfigProvider.backButton.text ''
+app.config ($ionicConfigProvider) ->
+    $ionicConfigProvider.backButton.text ''
+    $ionicConfigProvider.scrolling.jsScrolling no
 
 if ionic.Platform.isIOS() and ionic.Platform.version() == 9
     app.config ($provide) ->
