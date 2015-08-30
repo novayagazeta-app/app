@@ -10,7 +10,7 @@
         <ion-list can-swipe="false">
             <ion-item class="item-thumbnail-left articles"
                       ng-repeat="article in articles"
-                      href="#/app/article/{{ ::article.article_id }}">
+                      ng-href="#/app/article/{{ ::article.article_id }}">
                 <img ng-src="{{ ::article.image_url || 'img/no-photo.gif' }}" class="item-image">
                 <span ng-bind="::article.title"></span>
                 <div class="meta">

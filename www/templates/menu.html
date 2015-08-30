@@ -18,10 +18,12 @@
         </ion-header-bar>
         <ion-content>
             <ion-list ng-repeat="rubric in ::rubrics">
-                <ion-item menu-close ng-if="::rubric.rubric_id" href="#/app/rubric/{{ ::rubric.rubric_id }}">
+                <ion-item menu-close ng-if="::rubric.rubric_id"
+                            ng-href="#/app/rubric/{{ ::rubric.rubric_id }}">
                     {{ ::rubric.title }}
                 </ion-item>
-                <ion-item menu-close ng-if="::!rubric.rubric_id"  href="#/app/topnews">
+                <ion-item menu-close ng-if="::!rubric.rubric_id"
+                            href="#/app/topnews">
                     {{ ::rubric.title }}
                 </ion-item>
             </ion-list>
