@@ -8013,12 +8013,12 @@ strong, th {
       height: auto;
       vertical-align: bottom; }
 
-.articles.item-thumbnail-left .item-content .item-image {
+.articles.item-thumbnail-left .item-image {
   border-radius: 5px;
   object-fit: cover; }
-.articles .item-content span {
+.articles span {
   white-space: normal; }
-.articles.item-complex .item-content {
+.articles.item-complex {
   padding-right: 10px; }
 .articles .meta {
   font-size: small;

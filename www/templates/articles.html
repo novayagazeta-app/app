@@ -7,18 +7,33 @@
                 on-refresh="update_articles()">
         </ion-refresher>
 
-        <ion-list can-swipe="false">
-            <ion-item class="item-thumbnail-left articles"
-                      ng-repeat="article in articles"
-                      ng-href="#/app/article/{{ ::article.article_id }}">
+        <!--<ion-list can-swipe="false">-->
+            <!--<ion-item class="item-thumbnail-left articles"-->
+                      <!--ng-repeat="article in articles"-->
+                      <!--ng-href="#/app/article/{{ ::article.article_id }}">-->
+                <!--<img ng-src="{{ ::article.image_url || 'img/no-photo.gif' }}" class="item-image">-->
+                <!--<span ng-bind="::article.title"></span>-->
+                <!--<div class="meta">-->
+                    <!--<i class="icon ion-eye"></i> {{ ::article.views_count }}-->
+                    <!--<i class="icon ion-chatbubbles"></i> {{ ::article.comments_count }}-->
+                <!--</div>-->
+            <!--</ion-item>-->
+        <!--</ion-list>-->
+
+        <div class="list">
+
+            <a ng-repeat="article in articles"
+               class="item item-thumbnail-left articles"
+               ng-href="#/app/article/{{ ::article.article_id }}">
                 <img ng-src="{{ ::article.image_url || 'img/no-photo.gif' }}" class="item-image">
                 <span ng-bind="::article.title"></span>
+
                 <div class="meta">
                     <i class="icon ion-eye"></i> {{ ::article.views_count }}
                     <i class="icon ion-chatbubbles"></i> {{ ::article.comments_count }}
                 </div>
-            </ion-item>
-        </ion-list>
+            </a>
+        </div>
 
         <ion-infinite-scroll
                 ng-if="isArcticles"

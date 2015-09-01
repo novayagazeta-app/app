@@ -27,16 +27,16 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 @import "photo-swipebox";
 
 .articles {
-  &.item-thumbnail-left .item-content .item-image {
+  &.item-thumbnail-left .item-image {
     border-radius: 5px;
     object-fit: cover;
   }
 
-  .item-content span {
+  span {
     white-space: normal;
   }
 
-  &.item-complex .item-content {
+  &.item-complex {
     padding-right: 10px;
   }
 

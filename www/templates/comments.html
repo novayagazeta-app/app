@@ -8,7 +8,7 @@
     <script type="text/ng-template" id="comment">
       <div class="comment_item l{{ ::comment.level}}">
         <div class="meta">
-          <h5 class="username">{{ ::comment.author }}</h5>
+          <h5 class="username" ng-bind="::comment.author"></h5>
         </div>
         <div class="text" ng-bind-html="::comment.text"></div>
       </div>
