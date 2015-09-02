@@ -5505,8 +5505,6 @@ a.item-content {
   .scroll-refresher .icon-pulling {
     -webkit-animation-name: refresh-spin-back;
     animation-name: refresh-spin-back;
-    -webkit-animation-duration: 200ms;
-    animation-duration: 200ms;
     -webkit-animation-timing-function: linear;
     animation-timing-function: linear;
     -webkit-animation-fill-mode: none;
