@@ -1,0 +1,4 @@
+.scroll-refresher .icon-pulling {
+  @include animation-duration(0ms);
+  @include transition-duration(2000ms);
+}
