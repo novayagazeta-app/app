@@ -2,3 +2,7 @@
   @include animation-duration(0ms);
   @include transition-duration(2000ms);
 }
+
+.item.activated {
+  background-color: rgb(255, 255, 255);
+}

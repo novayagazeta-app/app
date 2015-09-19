@@ -3,8 +3,9 @@ module.exports = (config) ->
     frameworks: ['jasmine']
 
     files: [
-      'www/lib/ionic/js/ionic.bundle.js'
-      'www/lib/ngCordova/dist/ng-cordova.js'
+      'www/lib/angular/angular.min.js'
+      'www/lib/ionic/js/ionic.bundle.min.js'
+      'www/lib/ngCordova/dist/ng-cordova.min.js'
       'www/lib/angulartics/dist/angulartics.min.js'
       'www/lib/angulartics/dist/angulartics-debug.min.js'
       'www/lib/angulartics/dist/angulartics-ga-cordova-google-analytics-plugin.min.js'

@@ -1,35 +1,82 @@
 {
-    "name": "HelloIonic",
-    "private": "true",
-    "devDependencies": {
-        "ionic": "driftyco/ionic-bower#1.1.0",
-        "angular-mocks": "~1.3"
-    },
-    "dependencies": {
-        "underscore": "~1.8.3",
-        "linkifyjs": "v2.0.0-beta.1",
-        "angulartics": "~0.20.0",
-        "ngCordova": "~0.1.20-alpha",
-        "swipebox": "https://github.com/brutaldesign/swipebox.git#~1.4.1",
-        "angular-swipebox": "git@github.com:novayagazeta-app/angular-swipebox.git",
-        "raven-js": "~1.1.19"
-    },
-    "preen": {
-        "SHA-1": ["*.js"],
-        "angular": ["*.min.js", "*.map"],
-        "angular-animate": ["*.min.js", "*.map"],
-        "angular-mocks": ["*.js"],
-        "angular-sanitize": ["*.min.js", "*.map"],
-        "angular-swipebox": ["dist/*.min.js"],
-        "angular-ui-router": ["release/*.min.js"],
-        "angulartics": ["dist/angulartics.min.js", "dist/angulartics-debug.min.js", "dist/angulartics-ga-cordova-google-analytics-plugin.min.js"],
-        "ionic": ["css/*.min.css", "fonts/*", "js/*.min.js", "scss/**/*"],
-        "jquery": ["dist/*.min.js", "dist/*.map"],
-        "linkifyjs": ["linkify.min.js", "linkify-string.min.js"],
-        "ngCordova": ["dist/*.min.js"],
-        "raven-js": ["dist/*.min.js", "dist/*.map"],
-        "swipebox": ["src/img/*", "src/css/*.min.css", "src/js/*.min.js"],
-        "underscore": ["*-min.js", "*.map"],
-        "waypoints": ["lib/**/*"]
-    }
+  "name": "HelloIonic",
+  "private": "true",
+  "devDependencies": {
+    "angular-mocks": "~1.4",
+    "ionic": "driftyco/ionic-bower#1.1.0"
+  },
+  "dependencies": {
+    "angular": "~1.4.6",
+    "angular-swipebox": "git@github.com:novayagazeta-app/angular-swipebox.git",
+    "angulartics": "~0.20.0",
+    "linkifyjs": "v2.0.0-beta.1",
+    "ngCordova": "~0.1.20-alpha",
+    "raven-js": "~1.1.19",
+    "swipebox": "https://github.com/brutaldesign/swipebox.git#~1.4.1",
+    "underscore": "~1.8.3"
+  },
+  "preen": {
+    "SHA-1": [
+      "*.js"
+    ],
+    "angular": [
+      "*.min.js",
+      "*.map"
+    ],
+    "angular-animate": [
+      "*.min.js",
+      "*.map"
+    ],
+    "angular-mocks": [
+      "*.js"
+    ],
+    "angular-sanitize": [
+      "*.min.js",
+      "*.map"
+    ],
+    "angular-swipebox": [
+      "dist/*.min.js"
+    ],
+    "angular-ui-router": [
+      "release/*.min.js"
+    ],
+    "angulartics": [
+      "dist/angulartics.min.js",
+      "dist/angulartics-debug.min.js",
+      "dist/angulartics-ga-cordova-google-analytics-plugin.min.js"
+    ],
+    "ionic": [
+      "css/*.min.css",
+      "fonts/*",
+      "js/*.min.js",
+      "scss/**/*"
+    ],
+    "jquery": [
+      "dist/*.min.js",
+      "dist/*.map"
+    ],
+    "linkifyjs": [
+      "linkify.min.js",
+      "linkify-string.min.js"
+    ],
+    "ngCordova": [
+      "dist/*.min.js"
+    ],
+    "raven-js": [
+      "dist/*.min.js",
+      "dist/*.map"
+    ],
+    "swipebox": [
+      "src/img/*",
+      "src/css/*.min.css",
+      "src/js/*.min.js"
+    ],
+    "underscore": [
+      "*-min.js",
+      "*.map"
+    ],
+    "waypoints": [
+      "lib/**/*"
+    ]
+  }
 }

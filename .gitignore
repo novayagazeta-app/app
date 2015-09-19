@@ -7,3 +7,6 @@ plugins/
 www/lib/
 www/js
 .idea/
+
+www/css/ionic.app.css
+www/css/ionic.app.min.css

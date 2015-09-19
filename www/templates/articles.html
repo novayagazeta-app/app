@@ -1,24 +1,11 @@
 <ion-view>
     <ion-nav-title ng-bind="::title"></ion-nav-title>
 
-    <ion-content overflow-scroll="false">
+    <ion-content>
 
         <ion-refresher
                 on-refresh="update_articles()">
         </ion-refresher>
-
-        <!--<ion-list can-swipe="false">-->
-            <!--<ion-item class="item-thumbnail-left articles"-->
-                      <!--ng-repeat="article in articles"-->
-                      <!--ng-href="#/app/article/{{ ::article.article_id }}">-->
-                <!--<img ng-src="{{ ::article.image_url || 'img/no-photo.gif' }}" class="item-image">-->
-                <!--<span ng-bind="::article.title"></span>-->
-                <!--<div class="meta">-->
-                    <!--<i class="icon ion-eye"></i> {{ ::article.views_count }}-->
-                    <!--<i class="icon ion-chatbubbles"></i> {{ ::article.comments_count }}-->
-                <!--</div>-->
-            <!--</ion-item>-->
-        <!--</ion-list>-->
 
         <div class="list">
 
