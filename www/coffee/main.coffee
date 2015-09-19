@@ -28,7 +28,7 @@ if ionic.Platform.isWebView()
         googleAnalyticsCordovaProvider.debug = conf.debug
 
 
-app.run ($ionicPlatform, $analytics) ->
+app.run ($ionicPlatform, $analytics, $cordovaInAppBrowser) ->
     $ionicPlatform.ready ->
         if window.cordova and window.cordova.plugins.Keyboard
             cordova.plugins.Keyboard.hideKeyboardAccessoryBar(yes)
@@ -37,6 +37,10 @@ app.run ($ionicPlatform, $analytics) ->
 
         $analytics.eventTrack 'start_app',
             category: 'core'
+
+        $('body').on 'click', 'a[target="_blank"]', (e) ->
+            $cordovaInAppBrowser.open(@href, '_system')
+            return false
 
 app.config ($stateProvider, $urlRouterProvider) ->
     $stateProvider.state 'app',

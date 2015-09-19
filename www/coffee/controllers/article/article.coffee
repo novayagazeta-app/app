@@ -14,7 +14,12 @@ app.controller 'ArticleCtrl', ($scope, $stateParams, $ionicSlideBoxDelegate,
 
     api.article($stateParams.articleId)
     .success (data) ->
+        parse_article = (source) ->
+            $html = $(source)
+            $html.find('a').each (i, $el) -> $el.target = '_blank'
+            return $html
         prepare_photos(data) if data.photos
+        data.article_body = parse_article(data.article_body)
         $scope.article = data
     .finally -> do $scope.hide_spinner
 
