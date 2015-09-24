@@ -70,4 +70,10 @@ app.config ($stateProvider, $urlRouterProvider) ->
                 templateUrl: "templates/comments.html"
                 controller: 'CommentsCtrl'
 
+    $stateProvider.state 'app.about',
+        url: "/about/"
+        views:
+            menuContent:
+                templateUrl: "templates/about.html"
+
     $urlRouterProvider.otherwise '/app/rubric/topnews'

@@ -41,9 +41,6 @@
     "org.apache.cordova.inappbrowser"
   ],
   "cordovaPlatforms": [
-    {
-      "platform": "ios",
-      "locator": "https://github.com/apache/cordova-ios.git#3.9.1"
-    }
+    "ios"
   ]
 }
