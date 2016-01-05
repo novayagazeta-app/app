@@ -10,7 +10,7 @@
     "gulp-karma": "0.0.4",
     "gulp-minify-css": "^0.3.0",
     "gulp-rename": "^1.2.0",
-    "gulp-sass": "^1.3.3",
+    "gulp-sass": "^2.1.1",
     "preen": "^1.2.0",
     "yargs": "^3.19.0"
   },
@@ -38,9 +38,19 @@
       "locator": "https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin.git",
       "id": "nl.x-services.plugins.socialsharing"
     },
-    "org.apache.cordova.inappbrowser"
+    "org.apache.cordova.inappbrowser",
+    "cordova-plugin-wkwebview-engine",
+    {
+      "locator": "https://git-wip-us.apache.org/repos/asf/cordova-plugins.git#master:local-webserver",
+      "id": "cordova-labs-local-webserver"
+    },
+    "cordova-plugin-inappbrowser"
   ],
   "cordovaPlatforms": [
-    "ios"
+    {
+      "platform": "ios",
+      "version": "4.0.0",
+      "locator": "ios@4.0.0"
+    }
   ]
 }
